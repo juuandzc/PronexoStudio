@@ -270,10 +270,12 @@ function initLeadMagnet() {
   if (!form) return;
   const resultEl = document.getElementById('lead-result');
   let submitting = false;
+  let lastSubmit = 0;
 
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (submitting) return;
+    if (Date.now() - lastSubmit < 3000) return;
 
     const nameEl = document.getElementById('lead-name');
     const emailEl = document.getElementById('lead-email');
@@ -319,6 +321,7 @@ function initLeadMagnet() {
     resultEl.classList.add('show');
     resultEl.setAttribute('tabindex', '-1');
     resultEl.focus({ preventScroll: false });
+    lastSubmit = Date.now();
     btn.disabled = false;
     btn.textContent = 'Ver mi diagnóstico';
     submitting = false;
@@ -382,6 +385,7 @@ function initChatbot() {
 
   let state = 'chat'; // chat | ask_name | ask_email | ask_need | done
   let lead = { nombre: '', email: '', necesidad: '' };
+  let lastLeadSubmit = 0;
 
   function addMessage(text, from) {
     const msg = document.createElement('div');
@@ -455,14 +459,17 @@ function initChatbot() {
       lead.necesidad = text;
       state = 'done';
       await botSay(`Gracias, ${lead.nombre.split(' ')[0]}. Hemos registrado tu consulta (${lead.necesidad}) y el equipo de Pronexo Studio te escribirá a ${lead.email} en menos de 24h.`);
-      try {
-        await postToFormspree({
-          form: 'Lead desde chatbot demo',
-          nombre: sanitize(lead.nombre),
-          email: sanitize(lead.email),
-          necesidad: sanitize(lead.necesidad),
-        });
-      } catch (err) { /* no bloqueamos la demo si falla el envío */ }
+      if (Date.now() - lastLeadSubmit > 3000) {
+        lastLeadSubmit = Date.now();
+        try {
+          await postToFormspree({
+            form: 'Lead desde chatbot demo',
+            nombre: sanitize(lead.nombre),
+            email: sanitize(lead.email),
+            necesidad: sanitize(lead.necesidad),
+          });
+        } catch (err) { /* no bloqueamos la demo si falla el envío */ }
+      }
       return;
     }
 
