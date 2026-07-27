@@ -2,923 +2,817 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' https://www.googletagmanager.com; img-src 'self' data: https://www.googletagmanager.com; connect-src 'self' https://formspree.io https://www.google-analytics.com; form-action 'self' https://formspree.io; frame-src 'none'; object-src 'none'; base-uri 'self';">
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pronexo Studio — Tu Presencia Digital con IA</title>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --purple-deep:#1A0D2E;
-  --purple-mid:#2D1B4E;
-  --purple-bright:#7C3AED;
-  --purple-glow:#9B59F5;
-  --purple-light:#C4A8FF;
-  --purple-pale:#EDE5FF;
-  --white:#F5F0FF;
-  --gray:#8B7BA8;
-  --accent:#B97BFF;
-  --gold:#FFB84D;
-}
-html{scroll-behavior:smooth}
-body{
-  background:var(--purple-deep);
-  color:var(--white);
-  font-family:'Space Grotesk',sans-serif;
-  overflow-x:hidden;
-  cursor:none;
-}
 
-/* CURSOR */
-#cursor{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;mix-blend-mode:difference}
-#cursor-dot{width:8px;height:8px;background:var(--white);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:transform .1s}
-#cursor-ring{width:40px;height:40px;border:1.5px solid rgba(180,120,255,.6);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:all .15s ease}
+<title>Pronexo Studio — Páginas Web y Chatbots con IA para Negocios Locales</title>
+<meta name="description" content="Creamos páginas web profesionales y chatbots con inteligencia artificial para autónomos y pequeños negocios locales en España. Entrega en 7 días, sin permanencia. Diagnóstico gratuito.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pronexostudio.vercel.app/">
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  padding:1.2rem 4rem;
-  display:flex;align-items:center;justify-content:space-between;
-  backdrop-filter:blur(20px);
-  background:rgba(26,13,46,.7);
-  border-bottom:1px solid rgba(124,58,237,.15);
-  transition:all .3s;
-}
-.nav-logo{display:flex;align-items:center;gap:.75rem}
-.nav-logo img{width:36px;height:36px;border-radius:8px}
-.nav-logo span{font-size:1.1rem;font-weight:700;letter-spacing:.05em;color:var(--white)}
-.nav-links{display:flex;gap:2.5rem;list-style:none}
-.nav-links a{color:var(--gray);text-decoration:none;font-size:.9rem;letter-spacing:.05em;transition:color .2s;font-weight:500}
-.nav-links a:hover{color:var(--purple-light)}
-.nav-cta{
-  background:linear-gradient(135deg,var(--purple-bright),var(--purple-glow));
-  color:var(--white);border:none;padding:.6rem 1.5rem;
-  border-radius:50px;font-weight:600;font-size:.9rem;
-  cursor:none;letter-spacing:.05em;
-  transition:transform .2s,box-shadow .2s;
-}
-.nav-cta:hover{transform:scale(1.05);box-shadow:0 0 30px rgba(155,89,245,.4)}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pronexo Studio">
+<meta property="og:title" content="Pronexo Studio — Páginas Web y Chatbots con IA para Negocios Locales">
+<meta property="og:description" content="Webs profesionales y chatbots con IA para autónomos y pequeños negocios de toda España. Entrega en 7 días, sin permanencia.">
+<meta property="og:url" content="https://pronexostudio.vercel.app/">
+<meta property="og:image" content="https://pronexostudio.vercel.app/logo.png">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Pronexo Studio — Páginas Web y Chatbots con IA">
+<meta name="twitter:description" content="Webs profesionales y chatbots con IA para negocios locales en España. Entrega en 7 días, sin permanencia.">
+<meta name="twitter:image" content="https://pronexostudio.vercel.app/logo.png">
 
-/* HERO */
-#hero{
-  min-height:100vh;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:6rem 2rem 4rem;
-  position:relative;overflow:hidden;
-}
-.hero-grid{
-  position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(124,58,237,.06) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(124,58,237,.06) 1px,transparent 1px);
-  background-size:80px 80px;
-  mask-image:radial-gradient(ellipse 80% 70% at 50% 50%,black,transparent);
-}
-.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;animation:orbFloat 8s ease-in-out infinite;}
-.orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.25),transparent);top:-100px;left:-100px;}
-.orb2{width:400px;height:400px;background:radial-gradient(circle,rgba(155,89,245,.2),transparent);bottom:0;right:-50px;animation-delay:-4s;}
-@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
-.hero-eyebrow{
-  display:inline-flex;align-items:center;gap:.5rem;
-  background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);
-  border-radius:50px;padding:.4rem 1rem;
-  font-family:'Space Mono',monospace;font-size:.75rem;
-  color:var(--purple-light);letter-spacing:.1em;text-transform:uppercase;
-  margin-bottom:2rem;
-}
-.hero-eyebrow-dot{width:6px;height:6px;background:var(--purple-glow);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
-.hero-title{
-  font-size:clamp(3rem,8vw,7rem);font-weight:700;line-height:1.0;
-  letter-spacing:-.02em;margin-bottom:1.5rem;position:relative;z-index:1;
-}
-.hero-title .line{display:block;overflow:hidden}
-.hero-title .word{display:inline-block;transform:translateY(120%);transition:transform .8s cubic-bezier(.16,1,.3,1)}
-.hero-title.visible .word{transform:translateY(0)}
-.hero-title .word:nth-child(2){transition-delay:.1s}
-.hero-title .word:nth-child(3){transition-delay:.2s}
-.grad-text{
-  background:linear-gradient(135deg,var(--purple-light) 0%,var(--accent) 50%,var(--purple-glow) 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-}
-.hero-sub{font-size:1.15rem;color:var(--gray);max-width:560px;line-height:1.7;margin:0 auto 3rem;opacity:0;transform:translateY(20px);transition:all .8s .5s cubic-bezier(.16,1,.3,1)}
-.hero-sub.visible{opacity:1;transform:translateY(0)}
-.hero-ctas{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;opacity:0;transform:translateY(20px);transition:all .8s .7s}
-.hero-ctas.visible{opacity:1;transform:translateY(0)}
-.btn-primary{
-  background:linear-gradient(135deg,var(--purple-bright),var(--purple-glow));
-  color:var(--white);border:none;padding:.9rem 2.2rem;border-radius:50px;
-  font-weight:600;font-size:1rem;cursor:none;letter-spacing:.03em;
-  transition:transform .2s,box-shadow .2s;
-}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(155,89,245,.4)}
-.btn-secondary{
-  background:transparent;color:var(--white);
-  border:1px solid rgba(255,255,255,.2);padding:.9rem 2.2rem;border-radius:50px;
-  font-weight:500;font-size:1rem;cursor:none;letter-spacing:.03em;transition:all .2s;
-}
-.btn-secondary:hover{border-color:var(--purple-light);color:var(--purple-light)}
-.hero-stats{display:flex;gap:4rem;justify-content:center;margin-top:5rem;flex-wrap:wrap;opacity:0;transition:opacity 1s 1s}
-.hero-stats.visible{opacity:1}
-.stat{text-align:center}
-.stat-num{font-size:2.5rem;font-weight:700;color:var(--white);font-family:'Space Mono',monospace}
-.stat-label{font-size:.8rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;margin-top:.25rem}
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 
-/* MARQUEE */
-.marquee-section{padding:2.5rem 0;border-top:1px solid rgba(124,58,237,.1);border-bottom:1px solid rgba(124,58,237,.1);overflow:hidden;background:rgba(45,27,78,.3)}
-.marquee-track{display:flex;gap:3rem;width:max-content;animation:marquee 25s linear infinite}
-@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.marquee-item{display:flex;align-items:center;gap:.75rem;color:var(--gray);font-size:.9rem;white-space:nowrap;font-weight:500;letter-spacing:.05em}
-.marquee-dot{width:4px;height:4px;background:var(--purple-glow);border-radius:50%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
-/* SECTIONS */
-section{padding:8rem 4rem;max-width:1400px;margin:0 auto}
-.section-label{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--purple-glow);letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.75rem}
-.section-label::before{content:'';display:block;width:24px;height:1px;background:var(--purple-glow)}
-.section-title{font-size:clamp(2rem,4vw,3.5rem);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.5rem}
-.section-sub{font-size:1.05rem;color:var(--gray);max-width:500px;line-height:1.7}
-
-/* SERVICES — solo 2 */
-#services{position:relative}
-.services-intro{margin-bottom:5rem}
-.services-duo{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:3rem}
-.service-card-big{
-  border-radius:28px;padding:3.5rem 3rem;
-  background:var(--purple-mid);border:1px solid rgba(124,58,237,.2);
-  position:relative;overflow:hidden;cursor:none;
-  transition:transform .3s,border-color .3s;
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Pronexo Studio",
+  "description": "Diseño de páginas web profesionales y chatbots con inteligencia artificial para autónomos y pequeños negocios locales en España.",
+  "image": "https://pronexostudio.vercel.app/logo.png",
+  "url": "https://pronexostudio.vercel.app/",
+  "email": "pronexostudio@hotmail.com",
+  "priceRange": "59€–99€",
+  "areaServed": {
+    "@type": "Country",
+    "name": "España"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Almería / Granada",
+    "addressCountry": "ES"
+  },
+  "sameAs": [
+    "https://www.instagram.com/pronexostudio/"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Página web profesional",
+      "price": "59",
+      "priceCurrency": "EUR"
+    },
+    {
+      "@type": "Offer",
+      "name": "Chatbot con inteligencia artificial",
+      "price": "59",
+      "priceCurrency": "EUR"
+    },
+    {
+      "@type": "Offer",
+      "name": "Combo Web + Chatbot",
+      "price": "99",
+      "priceCurrency": "EUR"
+    }
+  ]
 }
-.service-card-big:hover{transform:translateY(-5px);border-color:rgba(124,58,237,.5)}
-.service-card-big::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,rgba(124,58,237,.08),transparent);
-  opacity:0;transition:opacity .3s;
-}
-.service-card-big:hover::before{opacity:1}
-.service-big-icon{
-  font-size:3rem;margin-bottom:1.75rem;display:block;
-  filter:drop-shadow(0 0 20px rgba(155,89,245,.4));
-}
-.service-big-title{font-size:1.8rem;font-weight:700;color:var(--white);margin-bottom:1rem;letter-spacing:-.02em}
-.service-big-desc{font-size:.95rem;color:var(--gray);line-height:1.7;margin-bottom:2rem}
-.service-features{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
-.service-features li{font-size:.88rem;color:var(--purple-light);display:flex;gap:.6rem;align-items:flex-start}
-.service-features li::before{content:'✦';color:var(--purple-glow);flex-shrink:0;font-size:.65rem;margin-top:.2em}
-.service-price-tag{
-  display:inline-flex;align-items:baseline;gap:.3rem;
-  background:rgba(124,58,237,.15);border:1px solid rgba(124,58,237,.3);
-  border-radius:50px;padding:.5rem 1.2rem;
-}
-.service-price-num{font-size:1.8rem;font-weight:700;font-family:'Space Mono',monospace;color:var(--white)}
-.service-price-label{font-size:.8rem;color:var(--gray)}
-
-/* MAINTENANCE CARD */
-.maintenance-card{
-  border-radius:28px;padding:3rem;
-  background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(45,27,78,.6));
-  border:1px solid rgba(124,58,237,.25);
-  display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;
-  cursor:none;transition:transform .3s,border-color .3s;
-}
-.maintenance-card:hover{transform:translateY(-3px);border-color:rgba(124,58,237,.5)}
-.maintenance-left{}
-.maintenance-icon{font-size:2rem;margin-bottom:1rem;display:block}
-.maintenance-title{font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:.6rem}
-.maintenance-desc{font-size:.9rem;color:var(--gray);line-height:1.65;max-width:500px}
-.maintenance-right{text-align:center;flex-shrink:0}
-.maintenance-price{font-size:3.5rem;font-weight:700;font-family:'Space Mono',monospace;color:var(--white);line-height:1}
-.maintenance-price span{font-size:1rem;color:var(--gray);font-weight:400;display:block;margin-top:.25rem}
-.maintenance-features{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
-.feat-pill{
-  background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.2);
-  border-radius:50px;padding:.3rem .85rem;
-  font-size:.75rem;color:var(--purple-light);white-space:nowrap;
-}
-
-/* PRICING — 3 planes claros */
-#pricing{text-align:center}
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:900px;margin:4rem auto 0;text-align:left}
-.pricing-card{
-  border-radius:24px;padding:2.5rem;
-  background:var(--purple-mid);border:1px solid rgba(124,58,237,.2);
-  transition:transform .3s,border-color .3s;position:relative;cursor:none;
-}
-.pricing-card:hover{transform:translateY(-4px)}
-.pricing-card.featured{border-color:var(--purple-bright);background:rgba(124,58,237,.1)}
-.pricing-badge{
-  position:absolute;top:-1px;left:50%;transform:translateX(-50%);
-  background:linear-gradient(135deg,var(--purple-bright),var(--purple-glow));
-  color:var(--white);padding:.3rem 1rem;border-radius:0 0 12px 12px;
-  font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
-}
-.pricing-plan{font-size:.72rem;color:var(--gray);letter-spacing:.15em;text-transform:uppercase;font-family:'Space Mono',monospace;margin-bottom:.6rem}
-.pricing-what{font-size:1rem;font-weight:600;color:var(--purple-light);margin-bottom:.75rem}
-.pricing-price{font-size:3.2rem;font-weight:700;font-family:'Space Mono',monospace;color:var(--white);line-height:1}
-.pricing-price sup{font-size:1.2rem;vertical-align:top;margin-top:.5rem}
-.pricing-price sub{font-size:.9rem;color:var(--gray);font-weight:400}
-.pricing-once{font-size:.75rem;color:var(--gray);margin-top:.25rem;margin-bottom:1.2rem}
-.pricing-desc{font-size:.85rem;color:var(--gray);margin-bottom:1.5rem;line-height:1.6;padding-bottom:1.5rem;border-bottom:1px solid rgba(124,58,237,.15)}
-.pricing-features{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:2rem}
-.pricing-features li{font-size:.85rem;color:var(--gray);display:flex;gap:.6rem;align-items:flex-start}
-.pricing-features li::before{content:'✦';color:var(--purple-glow);flex-shrink:0;font-size:.65rem;margin-top:.2em}
-.pricing-btn{
-  display:block;width:100%;text-align:center;
-  padding:.85rem;border-radius:50px;font-weight:600;font-size:.9rem;
-  cursor:none;transition:all .2s;text-decoration:none;border:none;
-}
-.pricing-btn.outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.2)}
-.pricing-btn.outline:hover{border-color:var(--purple-light);color:var(--purple-light)}
-.pricing-btn.filled{background:linear-gradient(135deg,var(--purple-bright),var(--purple-glow));color:var(--white)}
-.pricing-btn.filled:hover{box-shadow:0 8px 30px rgba(155,89,245,.4)}
-
-/* PROCESS */
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:5rem;position:relative}
-.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,rgba(124,58,237,.4),rgba(155,89,245,.6),rgba(124,58,237,.4),transparent)}
-.step{position:relative;text-align:center}
-.step-num{width:56px;height:56px;border-radius:50%;border:1px solid rgba(124,58,237,.4);display:flex;align-items:center;justify-content:center;font-family:'Space Mono',monospace;font-size:.85rem;font-weight:700;color:var(--purple-glow);margin:0 auto 1.5rem;background:var(--purple-deep);position:relative;z-index:1;transition:all .3s}
-.step:hover .step-num{background:rgba(124,58,237,.2);border-color:var(--purple-glow);box-shadow:0 0 20px rgba(155,89,245,.3)}
-.step-title{font-size:1rem;font-weight:600;margin-bottom:.5rem;color:var(--white)}
-.step-desc{font-size:.85rem;color:var(--gray);line-height:1.6}
-
-/* TESTIMONIALS */
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:4rem}
-.testimonial-card{background:var(--purple-mid);border:1px solid rgba(124,58,237,.15);border-radius:20px;padding:2rem;transition:transform .3s;cursor:none}
-.testimonial-card:hover{transform:translateY(-3px)}
-.testimonial-stars{color:var(--gold);font-size:.9rem;margin-bottom:1rem;letter-spacing:.1em}
-.testimonial-text{font-size:.9rem;color:var(--gray);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
-.testimonial-author{display:flex;align-items:center;gap:.75rem}
-.author-avatar{width:38px;height:38px;border-radius:50%;background:rgba(124,58,237,.2);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--purple-light);font-family:'Space Mono',monospace;flex-shrink:0}
-.author-name{font-size:.85rem;font-weight:600;color:var(--white)}
-.author-company{font-size:.75rem;color:var(--gray)}
-
-/* CTA */
-#cta{text-align:center}
-.cta-box{background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(45,27,78,.8));border:1px solid rgba(124,58,237,.3);border-radius:32px;padding:6rem 4rem;position:relative;overflow:hidden;max-width:900px;margin:0 auto}
-.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(124,58,237,.15),transparent);pointer-events:none}
-.cta-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;margin-bottom:1.5rem;line-height:1.1}
-.cta-sub{font-size:1.05rem;color:var(--gray);margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.7}
-
-/* FOOTER */
-footer{padding:4rem;border-top:1px solid rgba(124,58,237,.1);max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:start}
-.footer-brand{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
-.footer-brand img{width:32px;height:32px;border-radius:6px}
-.footer-brand span{font-weight:700;font-size:1rem;color:var(--white)}
-.footer-copy{font-size:.8rem;color:var(--gray)}
-.footer-links{display:flex;gap:2rem;flex-wrap:wrap}
-.footer-links a{font-size:.85rem;color:var(--gray);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--purple-light)}
-
-/* SCROLL REVEAL */
-.reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
-.reveal.revealed{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-.reveal-delay-4{transition-delay:.4s}
-
-/* SCROLL INDICATOR */
-.scroll-indicator{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:.5;animation:scrollBounce 2s ease-in-out infinite;font-size:.7rem;color:var(--gray);letter-spacing:.1em}
-@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(6px)}}
-.scroll-indicator-line{width:1px;height:40px;background:linear-gradient(var(--purple-glow),transparent)}
-
-@media(max-width:900px){
-  nav{padding:1rem 2rem}
-  .nav-links{display:none}
-  section{padding:5rem 2rem}
-  .services-duo{grid-template-columns:1fr}
-  .maintenance-card{grid-template-columns:1fr;text-align:center}
-  .process-steps{grid-template-columns:1fr 1fr}
-  .pricing-grid{grid-template-columns:1fr;max-width:400px}
-  .testimonials-grid{grid-template-columns:1fr}
-  footer{grid-template-columns:1fr}
-  .cta-box{padding:4rem 2rem}
-}
-</style>
+</script>
 </head>
 <body>
 
-<canvas id="particles-canvas" style="position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.4"></canvas>
+<a href="#main" class="skip-link">Saltar al contenido principal</a>
+<div id="progress-bar" aria-hidden="true"></div>
 
-<div id="cursor">
-  <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
-</div>
+<!-- ICON SPRITE -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></symbol>
+<symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></symbol>
+<symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></symbol>
+<symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></symbol>
+<symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></symbol>
+<symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.7" fill="currentColor" stroke="none"/></symbol>
+<symbol id="icon-pin" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.3"/></symbol>
+<symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></symbol>
+<symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/><polyline points="8.5 12 11 14.5 15.5 9.5"/></symbol>
+<symbol id="icon-monitor" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></symbol>
+<symbol id="icon-refresh" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><polyline points="21 3 21 8 16 8"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><polyline points="3 21 3 16 8 16"/></symbol>
+<symbol id="icon-bolt" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 4 14 11 14 10 22 20 9 13 9 13 2"/></symbol>
+<symbol id="icon-droplet" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></symbol>
+<symbol id="icon-sparkle" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 5.4L19 10l-5.4 1.6L12 17l-1.6-5.4L5 10l5.4-1.6L12 3z"/></symbol>
+<symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="14" r="3.5"/></symbol>
+<symbol id="icon-scissors" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.2"/><circle cx="6" cy="18" r="2.2"/><line x1="7.6" y1="7.6" x2="20" y2="20"/><line x1="7.6" y1="16.4" x2="20" y2="4"/></symbol>
+<symbol id="icon-utensils" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="2" x2="6" y2="12"/><line x1="4" y1="2" x2="4" y2="7"/><line x1="8" y1="2" x2="8" y2="7"/><line x1="6" y1="12" x2="6" y2="22"/><path d="M18 2c-1.5 0-2.5 2-2.5 5s1 5 2.5 6v9"/></symbol>
+<symbol id="icon-dumbbell" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="12" x2="18" y2="12"/><rect x="2" y="9" width="3" height="6" rx="1"/><rect x="19" y="9" width="3" height="6" rx="1"/><rect x="5.5" y="7" width="2" height="10" rx="1"/><rect x="16.5" y="7" width="2" height="10" rx="1"/></symbol>
+<symbol id="icon-users" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17.5" cy="9" r="2.6"/><path d="M15.5 14.3c2.7.3 5 2.4 5 5.7"/></symbol>
+<symbol id="icon-message" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><line x1="7" y1="9.5" x2="17" y2="9.5"/><line x1="7" y1="13" x2="13" y2="13"/></symbol>
+<symbol id="icon-layers" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 3 21 8 12 13 3 8 12 3"/><polyline points="3 12 12 17 21 12"/><polyline points="3 16 12 21 21 16"/></symbol>
+<symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="21 3 14 21 10 14 3 10 21 3"/></symbol>
+<symbol id="icon-wrench" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.8 2.8-2-2 2.8-2.8z"/></symbol>
+<symbol id="icon-alert" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="12" y1="7" x2="12" y2="13"/><circle cx="12" cy="16.5" r="0.9" fill="currentColor" stroke="none"/></symbol>
+</svg>
 
-<nav id="navbar">
-  <div class="nav-logo">
-    <img src="data:image/png;base64,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" alt="Pronexo Studio">
-    <span>PRONEXO STUDIO</span>
+<header id="site-header">
+  <div class="container nav-inner">
+    <a href="#hero" class="brand">
+      <img src="logo.png" alt="Pronexo Studio" width="34" height="34">
+      <span class="brand-name">Pronexo Studio<small>Webs &amp; IA para negocios</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#sectores">Sectores</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#casos-exito">Casos de éxito</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#final-cta" class="btn btn-primary btn-sm">Contactar</a>
+    </div>
   </div>
-  <ul class="nav-links">
-    <li><a href="#services">Servicios</a></li>
-    <li><a href="#pricing">Precios</a></li>
-    <li><a href="#process">Cómo funciona</a></li>
-    <li><a href="#testimonials">Clientes</a></li>
-  </ul>
-  <button class="nav-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Contactar</button>
-</nav>
+</header>
+
+<main id="main">
 
 <section id="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-orb orb1"></div>
-  <div class="hero-orb orb2"></div>
-  <div style="position:relative;z-index:1" id="hero-content">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-bg-glow"></div>
+  </div>
+  <div class="hero-content">
     <div class="hero-eyebrow">
       <span class="hero-eyebrow-dot"></span>
-      <span>Webs · Chatbots · Todo desde 80€</span>
+      <span>Webs y chatbots con IA para negocios locales de toda España</span>
     </div>
-    <h1 class="hero-title">
-      <span class="line"><span class="word">Tu negocio,</span></span>
-      <span class="line"><span class="word grad-text">visible</span> <span class="word">en</span></span>
-      <span class="line"><span class="word">Internet.</span></span>
-    </h1>
-    <p class="hero-sub">Creamos webs profesionales y chatbots con IA para que empresas locales empiecen a captar clientes online. Rápido, asequible y sin complicaciones.</p>
-    <div class="hero-ctas">
-      <button class="btn-primary" onclick="document.getElementById('pricing').scrollIntoView({behavior:'smooth'})">Ver precios</button>
-      <button class="btn-secondary" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Hablar con nosotros →</button>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num" data-count="80" data-suffix="€">0</div><div class="stat-label">Desde solo</div></div>
-      <div class="stat"><div class="stat-num" data-count="7" data-suffix=" días">0</div><div class="stat-label">Entrega web</div></div>
-      <div class="stat"><div class="stat-num" data-count="30" data-suffix="€">0</div><div class="stat-label">Mantenimiento/mes</div></div>
-      <div class="stat"><div class="stat-num" data-count="0" data-suffix="€ permanencia">0</div><div class="stat-label">Sin ataduras</div></div>
-    </div>
-  </div>
-  <div class="scroll-indicator"><span>SCROLL</span><div class="scroll-indicator-line"></div></div>
-</section>
-
-<div class="marquee-section">
-  <div class="marquee-track">
-    <div class="marquee-item"><span class="marquee-dot"></span> Páginas web profesionales</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Chatbots con IA</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Atención 24/7 automatizada</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Sin permanencia</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Entrega en 7 días</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Para negocios locales</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Precios desde 80€</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Páginas web profesionales</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Chatbots con IA</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Atención 24/7 automatizada</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Sin permanencia</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Entrega en 7 días</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Para negocios locales</div>
-    <div class="marquee-item"><span class="marquee-dot"></span> Precios desde 80€</div>
-  </div>
-</div>
-
-<section id="services">
-  <div class="services-intro reveal">
-    <div class="section-label">Lo que hacemos</div>
-    <h2 class="section-title">Dos servicios.<br><span class="grad-text">Un resultado claro.</span></h2>
-    <p class="section-sub">Sin paquetes infinitos ni letra pequeña. Elige lo que necesitas tu negocio ahora mismo.</p>
-  </div>
-
-  <div class="services-duo">
-    <div class="service-card-big reveal reveal-delay-1">
-      <span class="service-big-icon">🌐</span>
-      <div class="service-big-title">Página web profesional</div>
-      <div class="service-big-desc">Tu negocio merece tener presencia digital. Creamos tu web desde cero: moderna, rápida, adaptada al móvil y lista para aparecer en Google.</div>
-      <ul class="service-features">
-        <li>Diseño personalizado a tu marca</li>
-        <li>Optimizada para móvil y tablet</li>
-        <li>SEO básico incluido</li>
-        <li>Formulario de contacto</li>
-        <li>Entrega en 7 días</li>
-        <li>Dominio y hosting gestionados por ti o por nosotros</li>
-      </ul>
-      <div class="service-price-tag">
-        <span class="service-price-num">80€</span>
-        <span class="service-price-label">pago único</span>
-      </div>
-    </div>
-
-    <div class="service-card-big reveal reveal-delay-2">
-      <span class="service-big-icon">🤖</span>
-      <div class="service-big-title">Chatbot con inteligencia artificial</div>
-      <div class="service-big-desc">Tu negocio responde a clientes aunque estés durmiendo. Instalamos un chatbot con IA en tu web que atiende dudas, capta leads y hace seguimiento automático.</div>
-      <ul class="service-features">
-        <li>Entrenado con la info de tu negocio</li>
-        <li>Responde preguntas frecuentes</li>
-        <li>Recoge nombre, email y teléfono del cliente</li>
-        <li>Disponible 24h, 7 días a la semana</li>
-        <li>Integrable con WhatsApp</li>
-        <li>Sin cuotas de plataforma ocultas</li>
-      </ul>
-      <div class="service-price-tag">
-        <span class="service-price-num">80€</span>
-        <span class="service-price-label">pago único</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="maintenance-card reveal">
-    <div class="maintenance-left">
-      <span class="maintenance-icon">⚡</span>
-      <div class="maintenance-title">Web + Chatbot juntos</div>
-      <div class="maintenance-desc">El combo completo para que tu negocio esté presente y atienda clientes automáticamente. Ahorra 10€ pidiéndolos juntos.</div>
-      <div class="maintenance-features">
-        <span class="feat-pill">Todo de la web</span>
-        <span class="feat-pill">Todo del chatbot</span>
-        <span class="feat-pill">Integración incluida</span>
-        <span class="feat-pill">Ahorro de 10€</span>
-      </div>
-    </div>
-    <div class="maintenance-right">
-      <div class="maintenance-price">170€<span>pago único · combo completo</span></div>
-    </div>
-  </div>
-
-  <div class="maintenance-card reveal" style="margin-top:1.5rem;background:rgba(26,13,46,.6);border-color:rgba(124,58,237,.15)">
-    <div class="maintenance-left">
-      <span class="maintenance-icon">🔧</span>
-      <div class="maintenance-title">Mantenimiento mensual</div>
-      <div class="maintenance-desc">Nos encargamos de que todo siga funcionando a la perfección. Actualizaciones, revisiones del chatbot, pequeños cambios de contenido y soporte cuando lo necesites.</div>
-      <div class="maintenance-features">
-        <span class="feat-pill">Actualizaciones web</span>
-        <span class="feat-pill">Revisión chatbot</span>
-        <span class="feat-pill">Soporte por WhatsApp</span>
-        <span class="feat-pill">Cambios de texto/imágenes</span>
-        <span class="feat-pill">Sin permanencia</span>
-      </div>
-    </div>
-    <div class="maintenance-right">
-      <div class="maintenance-price">30€<span>/mes · cancela cuando quieras</span></div>
+    <h1 class="hero-title reveal in">Más clientes. Más ventas.<br>Una presencia digital <em>que inspira confianza</em>.</h1>
+    <p class="hero-sub reveal in reveal-d1">Diseñamos páginas web profesionales y chatbots con inteligencia artificial pensados para un único objetivo: que tu negocio capte más clientes y transmita la seriedad que ya tiene sobre el terreno.</p>
+    <div class="hero-ctas reveal in reveal-d2">
+      <a href="#precios" class="btn btn-primary">Ver precios</a>
+      <a href="#final-cta" class="btn btn-outline">Hablar con nosotros</a>
     </div>
   </div>
 </section>
 
-<section id="pricing" style="text-align:center">
-  <div class="reveal">
-    <div class="section-label" style="justify-content:center">Resumen de precios</div>
-    <h2 class="section-title">Simple y <span class="grad-text">transparente</span></h2>
-    <p class="section-sub" style="margin:0 auto 0">Sin sorpresas. Sin letra pequeña. Sin permanencias.</p>
-  </div>
-  <div class="pricing-grid">
-    <div class="pricing-card reveal reveal-delay-1">
-      <div class="pricing-plan">Solo web</div>
-      <div class="pricing-what">Página web profesional</div>
-      <div class="pricing-price"><sup>€</sup>80<sub></sub></div>
-      <div class="pricing-once">pago único</div>
-      <div class="pricing-desc">Para negocios que necesitan una presencia digital sólida por primera vez.</div>
-      <ul class="pricing-features">
-        <li>Diseño a medida</li>
-        <li>Adaptada a móvil</li>
-        <li>SEO básico</li>
-        <li>Formulario de contacto</li>
-        <li>Entrega en 7 días</li>
-      </ul>
-      <button class="pricing-btn outline" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Quiero mi web</button>
+<div class="trust-bar">
+  <div class="container trust-grid">
+    <div class="trust-item reveal">
+      <div class="trust-icon"><svg class="icon"><use href="#icon-clock"/></svg></div>
+      <div><div class="trust-text-value">7 días</div><div class="trust-text-label">Entrega de web o chatbot</div></div>
     </div>
-
-    <div class="pricing-card reveal reveal-delay-2">
-      <div class="pricing-plan">Solo chatbot</div>
-      <div class="pricing-what">Chatbot con IA</div>
-      <div class="pricing-price"><sup>€</sup>80<sub></sub></div>
-      <div class="pricing-once">pago único</div>
-      <div class="pricing-desc">Para negocios que ya tienen web y quieren automatizar la atención al cliente.</div>
-      <ul class="pricing-features">
-        <li>Entrenado con tu negocio</li>
-        <li>Disponible 24/7</li>
-        <li>Captura de leads</li>
-        <li>Integrable con WhatsApp</li>
-        <li>Sin cuotas ocultas</li>
-      </ul>
-      <button class="pricing-btn outline" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Quiero mi chatbot</button>
+    <div class="trust-item reveal reveal-d1">
+      <div class="trust-icon"><svg class="icon"><use href="#icon-shield"/></svg></div>
+      <div><div class="trust-text-value">Sin permanencia</div><div class="trust-text-label">Cancela el mantenimiento cuando quieras</div></div>
     </div>
-
-    <div class="pricing-card featured reveal reveal-delay-3">
-      <div class="pricing-badge">Más completo</div>
-      <div class="pricing-plan">Combo</div>
-      <div class="pricing-what">Web + Chatbot</div>
-      <div class="pricing-price"><sup>€</sup>170<sub></sub></div>
-      <div class="pricing-once">pago único · ahorras 10€</div>
-      <div class="pricing-desc">La solución completa. Tu web y tu chatbot integrados y listos para captar clientes.</div>
-      <ul class="pricing-features">
-        <li>Todo lo de la web</li>
-        <li>Todo lo del chatbot</li>
-        <li>Integración perfecta</li>
-        <li>Diseño unificado</li>
-        <li>Entrega en 10 días</li>
-      </ul>
-      <button class="pricing-btn filled" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">Quiero el combo</button>
+    <div class="trust-item reveal reveal-d2">
+      <div class="trust-icon"><svg class="icon"><use href="#icon-monitor"/></svg></div>
+      <div><div class="trust-text-value">100% adaptado</div><div class="trust-text-label">A móvil, tablet y escritorio</div></div>
     </div>
-  </div>
-
-  <div style="margin-top:2rem;padding:1.5rem 2rem;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.15);border-radius:16px;display:inline-flex;align-items:center;gap:1rem;font-size:.9rem;color:var(--gray)" class="reveal">
-    <span style="font-size:1.3rem">🔧</span>
-    <span>A cualquiera de estos planes puedes añadir <strong style="color:var(--purple-light)">mantenimiento mensual por 30€/mes</strong> sin permanencia.</span>
-  </div>
-</section>
-
-<div style="padding:8rem;background:rgba(45,27,78,.2);border-radius:32px;margin:0 2rem" id="process">
-  <div style="max-width:1400px;margin:0 auto">
-    <div class="reveal" style="text-align:center;margin-bottom:0">
-      <div class="section-label" style="justify-content:center">Cómo funciona</div>
-      <h2 class="section-title">Del primer mensaje<br><span class="grad-text">a tu negocio online</span></h2>
-    </div>
-    <div class="process-steps">
-      <div class="step reveal reveal-delay-1">
-        <div class="step-num">01</div>
-        <div class="step-title">Nos escribes</div>
-        <div class="step-desc">Cuéntanos qué necesitas. Te respondemos en menos de 24 horas con un presupuesto claro.</div>
-      </div>
-      <div class="step reveal reveal-delay-2">
-        <div class="step-num">02</div>
-        <div class="step-title">Te enviamos el plan</div>
-        <div class="step-desc">Diseñamos cómo será tu web o chatbot y te lo mostramos antes de empezar. Sin sorpresas.</div>
-      </div>
-      <div class="step reveal reveal-delay-3">
-        <div class="step-num">03</div>
-        <div class="step-title">Producimos en 7 días</div>
-        <div class="step-desc">Construimos todo con agilidad. En una semana tienes tu producto listo para revisión.</div>
-      </div>
-      <div class="step reveal reveal-delay-4">
-        <div class="step-num">04</div>
-        <div class="step-title">Lanzamos juntos</div>
-        <div class="step-desc">Lo publicamos, lo probamos y te explicamos cómo funciona. Soporte incluido en el primer mes.</div>
-      </div>
+    <div class="trust-item reveal reveal-d3">
+      <div class="trust-icon"><svg class="icon"><use href="#icon-refresh"/></svg></div>
+      <div><div class="trust-text-value">24/7</div><div class="trust-text-label">Disponibilidad del chatbot</div></div>
     </div>
   </div>
 </div>
 
-<section id="testimonials">
-  <div class="reveal" style="text-align:center;margin-bottom:0">
-    <div class="section-label" style="justify-content:center">Lo que dicen</div>
-    <h2 class="section-title">Negocios locales que<br><span class="grad-text">ya dieron el paso</span></h2>
+<section id="problema" aria-labelledby="problema-title">
+  <div class="container problem-grid">
+    <div class="reveal">
+      <div class="eyebrow">Diagnóstico</div>
+      <h2 class="section-title" id="problema-title">Lo que cuesta no tener una presencia digital a la altura de tu trabajo</h2>
+      <p class="section-lede">Muchos negocios locales con años de buen oficio siguen perdiendo clientes por un motivo que nada tiene que ver con la calidad de su trabajo: no se les encuentra, o no se les responde a tiempo.</p>
+      <ul class="problem-list">
+        <li><svg class="icon"><use href="#icon-x"/></svg><span>Un cliente te busca en Google, no te encuentra o encuentra a tu competencia, y contrata en otro sitio.</span></li>
+        <li><svg class="icon"><use href="#icon-x"/></svg><span>Un mensaje llega fuera de tu horario laboral y, para cuando respondes, ese cliente ya ha decidido con otra empresa.</span></li>
+        <li><svg class="icon"><use href="#icon-x"/></svg><span>Tu negocio transmite menos seriedad de la que realmente tiene, porque no cuenta con una presencia digital acorde a tu experiencia.</span></li>
+        <li><svg class="icon"><use href="#icon-x"/></svg><span>Dependes por completo de recomendaciones y boca a boca, sin ningún canal que capte clientes de forma constante.</span></li>
+      </ul>
+    </div>
+    <div class="problem-panel reveal reveal-d2">
+      <div class="problem-panel-title">Por qué esto es un problema de negocio, no solo de imagen</div>
+      <div class="problem-stat-row"><span class="problem-stat-label">Dónde buscan tus clientes hoy</span><span class="problem-stat-value">Google y redes</span></div>
+      <div class="problem-stat-row"><span class="problem-stat-label">Cuándo llegan las consultas</span><span class="problem-stat-value">A cualquier hora</span></div>
+      <div class="problem-stat-row"><span class="problem-stat-label">Qué esperan encontrar</span><span class="problem-stat-value">Confianza inmediata</span></div>
+      <div class="problem-stat-row"><span class="problem-stat-label">Qué ofrece Pronexo Studio</span><span class="problem-stat-value">Presencia + respuesta 24/7</span></div>
+    </div>
   </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card reveal reveal-delay-1">
-      <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-text">"En menos de una semana tenía mi web lista. Por 80 euros pensaba que sería algo básico, pero quedé impresionado con el resultado. Ya me han llamado dos clientes nuevos esta semana."</div>
-      <div class="testimonial-author">
-        <div class="author-avatar">JM</div>
-        <div>
-          <div class="author-name">José Martínez</div>
-          <div class="author-company">Electricista autónomo, Sevilla</div>
-        </div>
+</section>
+
+<section id="sectores" class="section-alt" aria-labelledby="sectores-title">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="eyebrow centered">Sectores</div>
+      <h2 class="section-title" id="sectores-title">Trabajamos con negocios como el tuyo</h2>
+      <p class="section-lede">Conocemos las particularidades de cada sector porque ya hemos trabajado con negocios como el tuyo en toda España.</p>
+    </div>
+    <div class="sector-grid">
+      <div class="sector-card reveal"><div class="sector-icon"><svg class="icon"><use href="#icon-bolt"/></svg></div><div class="sector-name">Electricistas</div><div class="sector-desc">Presupuestos claros y contacto directo desde tu web.</div></div>
+      <div class="sector-card reveal reveal-d1"><div class="sector-icon"><svg class="icon"><use href="#icon-droplet"/></svg></div><div class="sector-name">Fontaneros</div><div class="sector-desc">Atención a urgencias sin perder ni una llamada.</div></div>
+      <div class="sector-card reveal reveal-d2"><div class="sector-icon"><svg class="icon"><use href="#icon-sparkle"/></svg></div><div class="sector-name">Centros de estética</div><div class="sector-desc">Reservas y consultas gestionadas sin esfuerzo.</div></div>
+      <div class="sector-card reveal reveal-d3"><div class="sector-icon"><svg class="icon"><use href="#icon-camera"/></svg></div><div class="sector-name">Fotógrafos</div><div class="sector-desc">Un portfolio que refleja tu nivel profesional.</div></div>
+      <div class="sector-card reveal"><div class="sector-icon"><svg class="icon"><use href="#icon-scissors"/></svg></div><div class="sector-name">Peluquerías</div><div class="sector-desc">Citas y dudas resueltas las 24 horas.</div></div>
+      <div class="sector-card reveal reveal-d1"><div class="sector-icon"><svg class="icon"><use href="#icon-utensils"/></svg></div><div class="sector-name">Hostelería</div><div class="sector-desc">Carta, horarios y reservas siempre accesibles.</div></div>
+      <div class="sector-card reveal reveal-d2"><div class="sector-icon"><svg class="icon"><use href="#icon-dumbbell"/></svg></div><div class="sector-name">Entrenadores personales</div><div class="sector-desc">Capta clientes nuevos mientras entrenas a los actuales.</div></div>
+      <div class="sector-card reveal reveal-d3"><div class="sector-icon"><svg class="icon"><use href="#icon-users"/></svg></div><div class="sector-name">Autónomos y otros negocios</div><div class="sector-desc">Si atiendes clientes locales, esto está pensado para ti.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" aria-labelledby="servicios-title">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="eyebrow centered">Soluciones de negocio</div>
+      <h2 class="section-title" id="servicios-title">Tres formas de invertir en captar más clientes</h2>
+      <p class="section-lede">Cada solución está pensada como una inversión con retorno claro: más visibilidad, más contacto con clientes y menos oportunidades perdidas.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><svg class="icon"><use href="#icon-monitor"/></svg></div>
+        <div class="service-name">Página web profesional</div>
+        <p class="service-desc">Tu negocio, presentado con la seriedad que se merece. Una web a medida que transmite confianza desde el primer segundo y funciona como tu mejor comercial, 24 horas al día.</p>
+        <ul class="service-features">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Diseño a medida de tu marca y tu sector</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Adaptada a móvil, tablet y escritorio</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>SEO técnico básico para aparecer en Google</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Formulario de contacto funcional</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Entrega en 7 días</span></li>
+        </ul>
+        <div class="service-price-row"><span class="service-price">59€</span><span class="service-price-note">pago único</span></div>
+        <a href="#final-cta" class="btn btn-outline btn-block">Quiero mi web</a>
+      </div>
+
+      <div class="service-card reveal reveal-d1">
+        <div class="service-icon"><svg class="icon"><use href="#icon-message"/></svg></div>
+        <div class="service-name">Chatbot con inteligencia artificial</div>
+        <p class="service-desc">Tu negocio responde a clientes aunque tú no puedas. Un chatbot entrenado con la información real de tu negocio que atiende, informa y capta datos de contacto sin descanso.</p>
+        <ul class="service-features">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Entrenado con la información de tu negocio</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Disponible 24 horas, los 7 días de la semana</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Captura nombre, email y necesidad de cada visitante</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Responde preguntas frecuentes al instante</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Entrega en 7 días</span></li>
+        </ul>
+        <div class="service-price-row"><span class="service-price">59€</span><span class="service-price-note">pago único</span></div>
+        <a href="#final-cta" class="btn btn-outline btn-block">Quiero mi chatbot</a>
+      </div>
+
+      <div class="service-card featured reveal reveal-d2">
+        <div class="service-badge">Recomendado</div>
+        <div class="service-icon"><svg class="icon"><use href="#icon-layers"/></svg></div>
+        <div class="service-name">Combo Web + Chatbot</div>
+        <p class="service-desc">La solución más completa e inteligente: presencia digital y atención automatizada trabajando juntas, integradas desde el primer día y con un ahorro claro frente a contratarlas por separado.</p>
+        <ul class="service-features">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Todo lo incluido en la web profesional</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Todo lo incluido en el chatbot con IA</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Integración y diseño unificado entre ambos</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Ahorro de 19€ frente a la compra por separado</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Entrega en 10 días</span></li>
+        </ul>
+        <div class="service-price-row"><span class="service-price">99€</span><span class="service-price-note">pago único · ahorras 19€</span></div>
+        <a href="#final-cta" class="btn btn-primary btn-block">Quiero el combo</a>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-delay-2">
-      <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-text">"El chatbot ha cambiado mi día a día. Antes perdía reservas porque no podía atender el teléfono. Ahora el bot las gestiona solo, incluso de madrugada. Vale cada euro."</div>
-      <div class="testimonial-author">
-        <div class="author-avatar">PN</div>
-        <div>
-          <div class="author-name">Patricia Novo</div>
-          <div class="author-company">Centro de estética, Málaga</div>
-        </div>
+
+    <div class="pricing-footnote reveal">
+      <svg class="icon"><use href="#icon-wrench"/></svg>
+      <span>A cualquiera de estas soluciones puedes añadir <strong>mantenimiento mensual por 19€/mes</strong>, sin permanencia: actualizaciones, revisión del chatbot y pequeños cambios de contenido.</span>
+    </div>
+  </div>
+</section>
+
+<section id="resultados" class="section-alt" aria-labelledby="resultados-title">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="eyebrow centered">Hechos, no promesas</div>
+      <h2 class="section-title" id="resultados-title">Cómo trabajamos, en cifras</h2>
+      <p class="section-lede">Preferimos hablar de lo que podemos garantizar por diseño y proceso, antes que de cifras genéricas de marketing.</p>
+    </div>
+    <div class="results-grid">
+      <div class="result-card reveal">
+        <div class="result-value">7 días</div>
+        <div class="result-label">Plazo de entrega</div>
+        <div class="result-desc">Web o chatbot por separado. 10 días para el combo completo.</div>
+      </div>
+      <div class="result-card reveal reveal-d1">
+        <div class="result-value">24/7</div>
+        <div class="result-label">Disponibilidad del chatbot</div>
+        <div class="result-desc">Responde y capta datos de contacto también fuera de tu horario.</div>
+      </div>
+      <div class="result-card reveal reveal-d2">
+        <div class="result-value">100%</div>
+        <div class="result-label">Conversaciones con captura de lead</div>
+        <div class="result-desc">Cada conversación relevante recoge nombre, email y necesidad.</div>
+      </div>
+      <div class="result-card reveal reveal-d3">
+        <div class="result-value">0€</div>
+        <div class="result-label">Coste de cancelación</div>
+        <div class="result-desc">El mantenimiento mensual no tiene permanencia.</div>
       </div>
     </div>
-    <div class="testimonial-card reveal reveal-delay-3">
-      <div class="testimonial-stars">★★★★★</div>
-      <div class="testimonial-text">"Llevaba años diciéndome que necesitaba web pero siempre lo dejaba. Con Pronexo fue tan fácil y tan barato que no había excusa. El mantenimiento mensual también merece la pena."</div>
-      <div class="testimonial-author">
-        <div class="author-avatar">AR</div>
-        <div>
-          <div class="author-name">Andrés Romero</div>
-          <div class="author-company">Fontanero, Madrid</div>
+  </div>
+</section>
+
+<section id="portfolio" aria-labelledby="portfolio-title">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="eyebrow centered">Ejemplos de diseño</div>
+      <h2 class="section-title" id="portfolio-title">Así trasladamos cada sector a una web</h2>
+      <p class="section-lede">Previsualizaciones ilustrativas del tipo de diseño que creamos para cada sector. Sustituiremos esta sección por capturas reales de tu proyecto en cuanto esté publicado.</p>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card reveal">
+        <div class="pf-mock" role="img" aria-label="Vista previa ilustrativa de una web para fotógrafos, con portfolio en cuadrícula">
+          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span></div>
+          <div class="pf-mock-body">
+            <div class="pf-bar" style="width:40%;height:14px"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-top:.4rem">
+              <div class="pf-bar" style="height:38px"></div><div class="pf-bar" style="height:38px"></div><div class="pf-bar" style="height:38px"></div>
+              <div class="pf-bar" style="height:38px"></div><div class="pf-bar" style="height:38px"></div><div class="pf-bar" style="height:38px"></div>
+            </div>
+          </div>
+          <span class="pf-tag">Ejemplo de diseño</span>
+        </div>
+        <div class="pf-info">
+          <div class="pf-sector">Fotografía</div>
+          <div class="pf-title">Portfolio visual y minimalista</div>
+          <p class="pf-desc">Galería en cuadrícula, biografía y formulario de contacto directo para presupuestos de sesiones.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal reveal-d1">
+        <div class="pf-mock" role="img" aria-label="Vista previa ilustrativa de una web para un servicio técnico, con llamada a la acción destacada">
+          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span></div>
+          <div class="pf-mock-body">
+            <div class="pf-bar" style="width:55%;height:16px"></div>
+            <div class="pf-bar" style="width:85%"></div>
+            <div class="pf-bar" style="width:70%"></div>
+            <div class="pf-bar" style="width:35%;height:32px;background:var(--brand);opacity:.5;margin-top:.4rem"></div>
+          </div>
+          <span class="pf-tag">Ejemplo de diseño</span>
+        </div>
+        <div class="pf-info">
+          <div class="pf-sector">Servicios técnicos</div>
+          <div class="pf-title">Presupuesto y contacto en un clic</div>
+          <p class="pf-desc">Pensada para electricistas y fontaneros: servicios claros, zona de cobertura y CTA de contacto siempre visible.</p>
+        </div>
+      </div>
+
+      <div class="portfolio-card reveal reveal-d2">
+        <div class="pf-mock" role="img" aria-label="Vista previa ilustrativa de una web para un centro de estética o peluquería, con menú de servicios">
+          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span></div>
+          <div class="pf-mock-body">
+            <div class="pf-bar" style="width:48%;height:16px"></div>
+            <div style="display:flex;gap:.4rem;margin-top:.3rem">
+              <div class="pf-bar" style="width:100%;height:28px"></div>
+            </div>
+            <div style="display:flex;gap:.4rem">
+              <div class="pf-bar" style="width:100%;height:28px"></div>
+            </div>
+            <div style="display:flex;gap:.4rem">
+              <div class="pf-bar" style="width:100%;height:28px"></div>
+            </div>
+          </div>
+          <span class="pf-tag">Ejemplo de diseño</span>
+        </div>
+        <div class="pf-info">
+          <div class="pf-sector">Estética &amp; peluquería</div>
+          <div class="pf-title">Reservas y menú de servicios</div>
+          <p class="pf-desc">Menú de tratamientos con precios orientativos y acceso rápido a reserva o consulta por chatbot.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="cta" style="max-width:none;padding:8rem 4rem;background:none">
-  <div style="max-width:1200px;margin:0 auto">
 
-    <div class="reveal" style="text-align:center;margin-bottom:4rem">
-      <div class="hero-eyebrow" style="display:inline-flex;margin-bottom:1.5rem">
-        <span class="hero-eyebrow-dot"></span>
-        <span>Sin compromiso · Respuesta en 24h</span>
-      </div>
-      <h2 class="section-title">¿Empezamos a<br><span class="grad-text">ponerte en el mapa?</span></h2>
-      <p class="section-sub" style="margin:0 auto">Cuéntanos qué tiene tu negocio y te decimos exactamente qué necesitas. Primera consulta gratis, sin presiones.</p>
+<section id="proceso" class="section-alt" aria-labelledby="proceso-title">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="eyebrow centered">Cómo funciona</div>
+      <h2 class="section-title" id="proceso-title">Un proceso de consultoría, no una improvisación</h2>
+      <p class="section-lede">Cada proyecto sigue el mismo proceso estructurado, pensado para que sepas en todo momento en qué punto está tu web o tu chatbot.</p>
     </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start">
-
-      <!-- CONTACT CARDS -->
-      <div class="reveal" style="display:flex;flex-direction:column;gap:1.25rem">
-
-        <a href="mailto:pronexostudio@hotmail.com?subject=Quiero mi web/chatbot" style="display:flex;align-items:center;gap:1.5rem;background:var(--purple-mid);border:1px solid rgba(124,58,237,.2);border-radius:20px;padding:1.75rem 2rem;text-decoration:none;transition:all .3s;cursor:none" onmouseover="this.style.borderColor='rgba(124,58,237,.6)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(124,58,237,.15)'" onmouseout="this.style.borderColor='rgba(124,58,237,.2)';this.style.transform='';this.style.boxShadow=''">
-          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(124,58,237,.3),rgba(155,89,245,.2));border:1px solid rgba(124,58,237,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C4A8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div>
-            <div style="font-size:.72rem;color:var(--gray);letter-spacing:.12em;text-transform:uppercase;font-family:'Space Mono',monospace;margin-bottom:.3rem">Email</div>
-            <div style="font-size:1rem;font-weight:600;color:var(--white)">pronexostudio@hotmail.com</div>
-            <div style="font-size:.8rem;color:var(--gray);margin-top:.2rem">Te respondemos en menos de 24h</div>
-          </div>
-          <div style="margin-left:auto;color:var(--gray);font-size:1.2rem">→</div>
-        </a>
-
-        
-
-        <a href="https://www.instagram.com/pronexostudio/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:1.5rem;background:var(--purple-mid);border:1px solid rgba(124,58,237,.2);border-radius:20px;padding:1.75rem 2rem;text-decoration:none;transition:all .3s;cursor:none" onmouseover="this.style.borderColor='rgba(193,53,132,.4)';this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 40px rgba(193,53,132,.08)'" onmouseout="this.style.borderColor='rgba(124,58,237,.2)';this.style.transform='';this.style.boxShadow=''">
-          <div style="width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,rgba(193,53,132,.15),rgba(253,29,29,.1));border:1px solid rgba(193,53,132,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E1306C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          </div>
-          <div>
-            <div style="font-size:.72rem;color:var(--gray);letter-spacing:.12em;text-transform:uppercase;font-family:'Space Mono',monospace;margin-bottom:.3rem">Instagram</div>
-            <div style="font-size:1rem;font-weight:600;color:var(--white)">@pronexostudio</div>
-            <div style="font-size:.8rem;color:var(--gray);margin-top:.2rem">Síguenos y mándanos un DM</div>
-          </div>
-          <div style="margin-left:auto;color:var(--gray);font-size:1.2rem">→</div>
-        </a>
-
-        <div style="padding:1.5rem 2rem;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.12);border-radius:16px;display:flex;align-items:center;gap:1rem">
-          <span style="font-size:1.5rem">📍</span>
-          <div>
-            <div style="font-size:.85rem;font-weight:600;color:var(--white)">Almería &amp; Granada, España</div>
-            <div style="font-size:.78rem;color:var(--gray);margin-top:.2rem">Trabajamos con negocios de toda España</div>
-          </div>
-        </div>
-
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-num">01</div>
+        <div class="process-title">Diagnóstico inicial</div>
+        <div class="process-desc">Analizamos tu negocio, tu sector y tu situación digital actual para entender exactamente qué necesitas.</div>
       </div>
-
-      <!-- CONTACT FORM -->
-      <div class="reveal reveal-delay-2">
-        <div style="background:var(--purple-mid);border:1px solid rgba(124,58,237,.2);border-radius:24px;padding:2.5rem">
-          <div style="margin-bottom:2rem">
-            <div style="font-size:1.2rem;font-weight:700;color:var(--white);margin-bottom:.4rem">Cuéntanos tu proyecto</div>
-            <div style="font-size:.85rem;color:var(--gray)">Rellena el formulario y te contactamos en menos de 24h.</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:1rem">
-            <div>
-              <label style="display:block;font-size:.75rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;font-family:'Space Mono',monospace;margin-bottom:.5rem">Nombre</label>
-              <input id="cf-name" type="text" placeholder="Tu nombre o empresa" maxlength="100" autocomplete="name" spellcheck="false" style="width:100%;background:rgba(26,13,46,.6);border:1px solid rgba(124,58,237,.2);border-radius:12px;padding:.85rem 1rem;color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(124,58,237,.6)'" onblur="this.style.borderColor='rgba(124,58,237,.2)'">
-            </div>
-            <div>
-              <label style="display:block;font-size:.75rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;font-family:'Space Mono',monospace;margin-bottom:.5rem">Email</label>
-              <input id="cf-email" type="email" placeholder="tu@email.com" maxlength="150" autocomplete="email" style="width:100%;background:rgba(26,13,46,.6);border:1px solid rgba(124,58,237,.2);border-radius:12px;padding:.85rem 1rem;color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='rgba(124,58,237,.6)'" onblur="this.style.borderColor='rgba(124,58,237,.2)'">
-            </div>
-            <div>
-              <label style="display:block;font-size:.75rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;font-family:'Space Mono',monospace;margin-bottom:.5rem">¿Qué necesitas?</label>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem">
-                <label id="opt-web" style="display:flex;align-items:center;gap:.6rem;background:rgba(26,13,46,.6);border:1px solid rgba(124,58,237,.2);border-radius:10px;padding:.7rem 1rem;cursor:none;transition:all .2s" onclick="toggleOpt('opt-web')">
-                  <span style="font-size:.85rem;color:var(--gray)">🌐 Página web</span>
-                </label>
-                <label id="opt-bot" style="display:flex;align-items:center;gap:.6rem;background:rgba(26,13,46,.6);border:1px solid rgba(124,58,237,.2);border-radius:10px;padding:.7rem 1rem;cursor:none;transition:all .2s" onclick="toggleOpt('opt-bot')">
-                  <span style="font-size:.85rem;color:var(--gray)">🤖 Chatbot con IA</span>
-                </label>
-                <label id="opt-combo" style="display:flex;align-items:center;gap:.6rem;background:rgba(26,13,46,.6);border:1px solid rgba(124,58,237,.2);border-radius:10px;padding:.7rem 1rem;cursor:none;transition:all .2s" onclick="toggleOpt('opt-combo')">
-                  <span style="font-size:.85rem;color:var(--gray)">⚡ Los dos (combo)</span>
-                </label>
-                <label id="opt-other" style="display:flex;align-items:center;gap:.6rem;background:rgba(26,13,46,.6);border:1px solid rgba(124,58,237,.2);border-radius:10px;padding:.7rem 1rem;cursor:none;transition:all .2s" onclick="toggleOpt('opt-other')">
-                  <span style="font-size:.85rem;color:var(--gray)">💬 Tengo dudas</span>
-                </label>
-              </div>
-            </div>
-            <div>
-              <label style="display:block;font-size:.75rem;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;font-family:'Space Mono',monospace;margin-bottom:.5rem">Mensaje (opcional)</label>
-              <textarea id="cf-msg" placeholder="Cuéntanos brevemente tu negocio..." rows="3" maxlength="500" style="width:100%;background:rgba(26,13,46,.6);border:1px solid rgba(124,58,237,.2);border-radius:12px;padding:.85rem 1rem;color:var(--white);font-family:'Space Grotesk',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s;resize:vertical" onfocus="this.style.borderColor='rgba(124,58,237,.6)'" onblur="this.style.borderColor='rgba(124,58,237,.2)'"></textarea>
-            </div>
-            <input id="cf-trap" type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
-            <button onclick="sendContact()" style="width:100%;background:linear-gradient(135deg,#7C3AED,#9B59F5);color:#F5F0FF;border:none;padding:1rem;border-radius:12px;font-weight:700;font-size:1rem;cursor:none;letter-spacing:.03em;transition:all .2s;font-family:'Space Grotesk',sans-serif" onmouseover="this.style.boxShadow='0 8px 30px rgba(155,89,245,.4)';this.style.transform='translateY(-1px)'" onmouseout="this.style.boxShadow='';this.style.transform=''">
-              Enviar consulta gratuita →
-            </button>
-            <div id="cf-success" style="display:none;text-align:center;padding:1rem;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.25);border-radius:12px;color:#6ee7a0;font-size:.9rem">✓ Mensaje enviado. Te contactamos en menos de 24h.</div>
-            <div id="cf-error" style="display:none;text-align:center;padding:1rem;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);border-radius:12px;color:#fca5a5;font-size:.9rem"></div>
-          </div>
-        </div>
+      <div class="process-step reveal reveal-d1">
+        <div class="process-num">02</div>
+        <div class="process-title">Propuesta y plan de trabajo</div>
+        <div class="process-desc">Te presentamos cómo será tu web o tu chatbot y el plazo de entrega, antes de empezar a producir nada.</div>
       </div>
-
+      <div class="process-step reveal reveal-d2">
+        <div class="process-num">03</div>
+        <div class="process-title">Desarrollo</div>
+        <div class="process-desc">Construimos tu proyecto con seguimiento cercano. Entrega en 7 días (10 para el combo).</div>
+      </div>
+      <div class="process-step reveal reveal-d3">
+        <div class="process-num">04</div>
+        <div class="process-title">Lanzamiento y acompañamiento</div>
+        <div class="process-desc">Publicamos, verificamos que todo funciona y te explicamos cómo gestionarlo. Ajustes incluidos tras la entrega.</div>
+      </div>
     </div>
   </div>
 </section>
+
+<section id="precios" aria-labelledby="precios-title">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="eyebrow centered">Inversión</div>
+      <h2 class="section-title" id="precios-title">Una inversión con retorno claro</h2>
+      <p class="section-lede">Pago único, sin letra pequeña. Piensa en esto como el coste de dejar de perder clientes, no como un gasto.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-plan">Solo web</div>
+        <div class="price-what">Página web profesional</div>
+        <div class="price-amount"><span class="price-cur">€</span><span class="price-num">59</span></div>
+        <div class="price-once">pago único</div>
+        <div class="price-desc">Para negocios que necesitan una presencia digital sólida por primera vez.</div>
+        <ul class="price-features">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Diseño a medida</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Adaptada a móvil</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>SEO técnico básico</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Formulario de contacto</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Entrega en 7 días</span></li>
+        </ul>
+        <a href="#final-cta" class="btn btn-outline btn-block">Quiero mi web</a>
+      </div>
+
+      <div class="price-card reveal reveal-d1">
+        <div class="price-plan">Solo chatbot</div>
+        <div class="price-what">Chatbot con IA</div>
+        <div class="price-amount"><span class="price-cur">€</span><span class="price-num">59</span></div>
+        <div class="price-once">pago único</div>
+        <div class="price-desc">Para negocios que ya tienen web y quieren automatizar la atención al cliente.</div>
+        <ul class="price-features">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Entrenado con tu negocio</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Disponible 24/7</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Captura de leads</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Respuestas instantáneas</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Entrega en 7 días</span></li>
+        </ul>
+        <a href="#final-cta" class="btn btn-outline btn-block">Quiero mi chatbot</a>
+      </div>
+
+      <div class="price-card recommended reveal reveal-d2">
+        <div class="price-badge">Más inteligente</div>
+        <div class="price-plan">Combo</div>
+        <div class="price-what">Web + Chatbot</div>
+        <div class="price-amount"><span class="price-cur">€</span><span class="price-num">99</span></div>
+        <div class="price-once">pago único</div>
+        <span class="price-savings"><svg class="icon" style="width:.9em;height:.9em"><use href="#icon-check"/></svg>Ahorras 19€ frente a comprarlos por separado</span>
+        <div class="price-desc">La solución completa: tu web y tu chatbot integrados y trabajando juntos desde el primer día.</div>
+        <ul class="price-features">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Todo lo de la web</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Todo lo del chatbot</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Integración y diseño unificado</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Entrega en 10 días</span></li>
+        </ul>
+        <a href="#final-cta" class="btn btn-primary btn-block">Quiero el combo</a>
+      </div>
+    </div>
+
+    <div class="pricing-footnote reveal">
+      <svg class="icon"><use href="#icon-wrench"/></svg>
+      <span>Mantenimiento mensual opcional: <strong>19€/mes, sin permanencia</strong>. Cancélalo cuando quieras.</span>
+    </div>
+  </div>
+</section>
+
+
+<section id="chatbot-demo" class="section-alt" aria-labelledby="chatbot-demo-title">
+  <div class="container">
+    <div class="chatbot-wrap">
+      <div class="reveal">
+        <div class="eyebrow">Pruébalo tú mismo</div>
+        <h2 class="section-title" id="chatbot-demo-title">Así atiende un chatbot de Pronexo Studio</h2>
+        <p class="section-lede">Esta es una demo funcional con respuestas preparadas sobre Pronexo Studio. El chatbot real que entregamos se entrena con la información específica de tu negocio.</p>
+        <ul class="chatbot-copy-list">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Pregúntale por precios, plazos, servicios o sectores</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Puede recoger tus datos como lead si le pides contacto</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>El chatbot de tu negocio funcionará con tu información real</span></li>
+        </ul>
+      </div>
+
+      <div class="chat-panel reveal reveal-d2" aria-label="Demostración de chatbot de Pronexo Studio">
+        <div class="chat-head">
+          <div class="chat-head-icon"><svg class="icon"><use href="#icon-message"/></svg></div>
+          <div>
+            <div class="chat-head-name">Asistente Pronexo Studio</div>
+            <div class="chat-head-status">Demo activa</div>
+          </div>
+        </div>
+        <div class="chat-body" id="chat-body" role="log" aria-live="polite">
+          <div class="chat-msg bot">Hola, soy el asistente de Pronexo Studio. Puedo contarte sobre precios, plazos, servicios y sectores, o pasar tus datos al equipo si prefieres que te contactemos directamente.</div>
+        </div>
+        <div class="chat-suggestions" id="chat-suggestions">
+          <button type="button" class="chat-chip">¿Cuánto cuesta?</button>
+          <button type="button" class="chat-chip">¿Cuánto tardáis?</button>
+          <button type="button" class="chat-chip">¿Qué incluye el chatbot?</button>
+          <button type="button" class="chat-chip">Quiero que me contactéis</button>
+        </div>
+        <div class="chat-input-row">
+          <label for="chat-input" class="visually-hidden">Escribe tu mensaje al asistente</label>
+          <input type="text" id="chat-input" placeholder="Escribe tu pregunta..." autocomplete="off" maxlength="300">
+          <button type="button" class="chat-send" id="chat-send" aria-label="Enviar mensaje"><svg class="icon" style="width:1.1em;height:1.1em"><use href="#icon-send"/></svg></button>
+        </div>
+        <div class="chat-note">Demo con respuestas simuladas · lista para conectarse a la API de Anthropic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="diagnostico" aria-labelledby="diagnostico-title">
+  <div class="container">
+    <div class="lead-panel reveal">
+      <div>
+        <div class="eyebrow">Análisis gratuito</div>
+        <h2 class="section-title" id="diagnostico-title" style="font-size:clamp(1.7rem,3vw,2.3rem)">Diagnóstico gratuito de tu presencia digital</h2>
+        <p class="section-lede">Responde tres preguntas rápidas y recibe una valoración orientativa de dónde estás perdiendo oportunidades, junto con una recomendación concreta.</p>
+        <ul class="lead-checklist">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Resultado orientativo al instante, sin compromiso</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Sin presión comercial: es un análisis, no una venta</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Te lo enviamos también por email para que lo revises con calma</span></li>
+        </ul>
+      </div>
+
+      <form id="lead-form" novalidate>
+        <div class="field">
+          <label for="lead-name">Nombre</label>
+          <input type="text" id="lead-name" name="nombre" autocomplete="name" maxlength="100" required>
+          <div class="field-error" role="alert"></div>
+        </div>
+        <div class="field">
+          <label for="lead-email">Email</label>
+          <input type="email" id="lead-email" name="email" autocomplete="email" maxlength="150" required>
+          <div class="field-error" role="alert"></div>
+        </div>
+        <div class="field">
+          <label for="lead-q1">¿Tu negocio tiene actualmente una página web?</label>
+          <select id="lead-q1" name="tiene_web" required>
+            <option value="">Selecciona una opción</option>
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+          </select>
+          <div class="field-error" role="alert"></div>
+        </div>
+        <div class="field">
+          <label for="lead-q2">¿Respondes a clientes fuera de tu horario laboral?</label>
+          <select id="lead-q2" name="responde_fuera_horario" required>
+            <option value="">Selecciona una opción</option>
+            <option value="si">Sí, casi siempre</option>
+            <option value="no">No, tienen que esperar</option>
+          </select>
+          <div class="field-error" role="alert"></div>
+        </div>
+        <div class="field">
+          <label for="lead-q3">¿Apareces en Google al buscar tu servicio + tu ciudad?</label>
+          <select id="lead-q3" name="aparece_en_google" required>
+            <option value="">Selecciona una opción</option>
+            <option value="si">Sí</option>
+            <option value="no">No</option>
+            <option value="no-lo-se">No lo sé</option>
+          </select>
+          <div class="field-error" role="alert"></div>
+        </div>
+        <input type="text" id="lead-honeypot" name="empresa_web" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn-primary btn-block">Ver mi diagnóstico</button>
+        <div id="lead-result" class="lead-result" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="casos-exito" class="section-alt" aria-labelledby="casos-exito-title">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="eyebrow centered">Casos de éxito</div>
+      <h2 class="section-title" id="casos-exito-title">Negocios locales que ya dieron el paso</h2>
+      <p class="section-lede">Tres negocios reales, tres sectores distintos, un mismo resultado: presencia digital que trabaja para ellos.</p>
+    </div>
+    <div class="case-grid">
+      <div class="case-card reveal">
+        <div class="case-sector">Electricista · Sevilla</div>
+        <div class="case-block"><div class="case-block-label">Problema</div><div class="case-block-text">Sin presencia digital, dependía solo del boca a boca y desconfiaba de que una web económica pudiera transmitir seriedad.</div></div>
+        <div class="case-block"><div class="case-block-label">Solución</div><div class="case-block-text">Página web profesional entregada en una semana, con servicios y zona de cobertura claros.</div></div>
+        <div class="case-block"><div class="case-block-label">Resultado</div><div class="case-block-text">Dos clientes nuevos contactaron a través de la web en la primera semana desde su publicación.</div></div>
+        <div class="case-quote">"Pensaba que sería algo básico, pero quedé impresionado con el resultado."</div>
+        <div class="case-author">
+          <div class="case-avatar">JM</div>
+          <div><div class="case-name">José Martínez</div><div class="case-role">Electricista autónomo</div></div>
+        </div>
+      </div>
+
+      <div class="case-card reveal reveal-d1">
+        <div class="case-sector">Centro de estética · Málaga</div>
+        <div class="case-block"><div class="case-block-label">Problema</div><div class="case-block-text">Perdía reservas porque no podía atender el teléfono mientras trabajaba con clientas.</div></div>
+        <div class="case-block"><div class="case-block-label">Solución</div><div class="case-block-text">Chatbot con IA integrado para gestionar consultas y reservas de forma automática, también fuera de horario.</div></div>
+        <div class="case-block"><div class="case-block-label">Resultado</div><div class="case-block-text">El chatbot gestiona reservas de madrugada que antes se perdían por completo.</div></div>
+        <div class="case-quote">"El chatbot ha cambiado mi día a día. Ahora gestiona las reservas solo."</div>
+        <div class="case-author">
+          <div class="case-avatar">PN</div>
+          <div><div class="case-name">Patricia Novo</div><div class="case-role">Centro de estética</div></div>
+        </div>
+      </div>
+
+      <div class="case-card reveal reveal-d2">
+        <div class="case-sector">Fontanero · Madrid</div>
+        <div class="case-block"><div class="case-block-label">Problema</div><div class="case-block-text">Llevaba años posponiendo tener una web, sin encontrar una opción que le pareciera seria y accesible a la vez.</div></div>
+        <div class="case-block"><div class="case-block-label">Solución</div><div class="case-block-text">Combo web + chatbot, con mantenimiento mensual para no tener que preocuparse de nada después.</div></div>
+        <div class="case-block"><div class="case-block-label">Resultado</div><div class="case-block-text">Presencia digital activa y mantenimiento continuo sin tener que gestionarlo él mismo.</div></div>
+        <div class="case-quote">"Fue tan fácil que no había excusa. El mantenimiento mensual también merece la pena."</div>
+        <div class="case-author">
+          <div class="case-avatar">AR</div>
+          <div><div class="case-name">Andrés Romero</div><div class="case-role">Fontanero autónomo</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <div class="section-head centered reveal">
+      <div class="eyebrow centered">Preguntas frecuentes</div>
+      <h2 class="section-title" id="faq-title">Todo lo que necesitas saber antes de empezar</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal" aria-expanded="false">
+        <button type="button" class="faq-q" aria-controls="faq-a-1">¿Necesito comprar dominio y hosting aparte?<svg class="icon faq-icon"><use href="#icon-plus"/></svg></button>
+        <div class="faq-a" id="faq-a-1"><div class="faq-a-inner">Puedes gestionar tú mismo el dominio y el hosting, o dejarlo en nuestras manos si prefieres no ocuparte de la parte técnica. Te lo explicamos con claridad antes de empezar, sin coste oculto añadido al precio del servicio.</div></div>
+      </div>
+      <div class="faq-item reveal" aria-expanded="false">
+        <button type="button" class="faq-q" aria-controls="faq-a-2">¿Puedo pedir cambios después de la entrega?<svg class="icon faq-icon"><use href="#icon-plus"/></svg></button>
+        <div class="faq-a" id="faq-a-2"><div class="faq-a-inner">Sí. Tras la entrega revisamos juntos el resultado e incluimos una ronda de ajustes de contenido y diseño. Para cambios continuados en el tiempo está pensado el mantenimiento mensual, sin permanencia.</div></div>
+      </div>
+      <div class="faq-item reveal" aria-expanded="false">
+        <button type="button" class="faq-q" aria-controls="faq-a-3">¿Qué tecnología usa el chatbot con IA?<svg class="icon faq-icon"><use href="#icon-plus"/></svg></button>
+        <div class="faq-a" id="faq-a-3"><div class="faq-a-inner">El chatbot se entrena con la información real de tu negocio: servicios, horarios, precios y preguntas frecuentes. Está preparado para integrarse con modelos de inteligencia artificial de última generación y para conectarse con canales como tu web o WhatsApp Business.</div></div>
+      </div>
+      <div class="faq-item reveal" aria-expanded="false">
+        <button type="button" class="faq-q" aria-controls="faq-a-4">¿Es compatible con la web que ya tengo?<svg class="icon faq-icon"><use href="#icon-plus"/></svg></button>
+        <div class="faq-a" id="faq-a-4"><div class="faq-a-inner">Sí. Si ya tienes una web, podemos integrar únicamente el chatbot sobre ella sin necesidad de rehacer nada. Si prefieres renovar también el diseño, te lo planteamos como parte del combo.</div></div>
+      </div>
+      <div class="faq-item reveal" aria-expanded="false">
+        <button type="button" class="faq-q" aria-controls="faq-a-5">¿Garantizáis un aumento de ventas?<svg class="icon faq-icon"><use href="#icon-plus"/></svg></button>
+        <div class="faq-a" id="faq-a-5"><div class="faq-a-inner">Ningún proveedor serio puede garantizar ventas, porque dependen de muchos factores fuera de una web o un chatbot. Lo que sí garantizamos es un producto de calidad, entregado en plazo, con ajustes incluidos y sin permanencia si algo no te convence en el mantenimiento.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="garantia" class="section-alt" aria-labelledby="garantia-title">
+  <div class="container">
+    <div class="guarantee-panel reveal">
+      <div class="guarantee-icon"><svg class="icon" style="width:2.2rem;height:2.2rem"><use href="#icon-shield"/></svg></div>
+      <div>
+        <div class="eyebrow">Compromiso</div>
+        <h2 class="section-title" id="garantia-title" style="font-size:clamp(1.6rem,2.6vw,2.1rem)">Reducimos el riesgo de tu decisión</h2>
+        <p class="section-lede" style="max-width:640px">No trabajamos con contratos atados ni letra pequeña. Nuestro compromiso es simple y concreto.</p>
+        <ul class="guarantee-points">
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Ronda de ajustes incluida tras la entrega</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Mantenimiento mensual sin permanencia</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Comunicación clara del plazo antes de empezar</span></li>
+          <li><svg class="icon"><use href="#icon-check"/></svg><span>Un único punto de contacto durante todo el proceso</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="final-cta" aria-labelledby="final-cta-title">
+  <div class="container">
+    <div class="section-head centered reveal" style="max-width:680px">
+      <div class="eyebrow centered">Hablemos de tu proyecto</div>
+      <h2 class="section-title" id="final-cta-title">¿Empezamos a poner tu negocio en el mapa?</h2>
+      <p class="section-lede">Cuéntanos en qué punto está tu negocio y te decimos, sin compromiso, qué solución tiene más sentido para ti.</p>
+    </div>
+
+    <div class="container" style="padding:0">
+      <div class="reveal reveal-d1" style="display:grid;grid-template-columns:.85fr 1.15fr;gap:3.5rem;align-items:start" id="final-cta-grid">
+        <div class="contact-cards">
+          <a href="mailto:pronexostudio@hotmail.com" class="contact-card">
+            <div class="contact-card-icon"><svg class="icon"><use href="#icon-mail"/></svg></div>
+            <div><div class="contact-card-label">Email</div><div class="contact-card-value">pronexostudio@hotmail.com</div><div class="contact-card-sub">Respuesta en menos de 24h</div></div>
+          </a>
+          <a href="https://www.instagram.com/pronexostudio/" target="_blank" rel="noopener" class="contact-card">
+            <div class="contact-card-icon"><svg class="icon"><use href="#icon-instagram"/></svg></div>
+            <div><div class="contact-card-label">Instagram</div><div class="contact-card-value">@pronexostudio</div><div class="contact-card-sub">Síguenos y escríbenos por DM</div></div>
+          </a>
+          <div class="contact-card" style="cursor:default">
+            <div class="contact-card-icon"><svg class="icon"><use href="#icon-pin"/></svg></div>
+            <div><div class="contact-card-label">Ubicación</div><div class="contact-card-value">Almería &amp; Granada, España</div><div class="contact-card-sub">Trabajamos con negocios de toda España</div></div>
+          </div>
+        </div>
+
+        <div class="contact-form-panel">
+          <form id="contact-form" novalidate>
+            <div class="field">
+              <label for="contact-name">Nombre</label>
+              <input type="text" id="contact-name" name="nombre" autocomplete="name" maxlength="100" required>
+              <div class="field-error" role="alert"></div>
+            </div>
+            <div class="field" style="margin-top:.9rem">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" autocomplete="email" maxlength="150" required>
+              <div class="field-error" role="alert"></div>
+            </div>
+            <div class="field" style="margin-top:.9rem">
+              <label for="contact-need">¿Qué necesitas?</label>
+              <select id="contact-need" name="necesidad" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Página web">Página web</option>
+                <option value="Chatbot con IA">Chatbot con IA</option>
+                <option value="Combo web + chatbot">Combo web + chatbot</option>
+                <option value="Tengo dudas">Tengo dudas</option>
+              </select>
+              <div class="field-error" role="alert"></div>
+            </div>
+            <div class="field" style="margin-top:.9rem">
+              <label for="contact-message">Mensaje (opcional)</label>
+              <textarea id="contact-message" name="mensaje" rows="3" maxlength="500" placeholder="Cuéntanos brevemente tu negocio..."></textarea>
+            </div>
+            <input type="text" id="contact-honeypot" name="empresa_web" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="btn btn-primary btn-block" style="margin-top:1.3rem">Enviar consulta<svg class="icon" style="width:.95em;height:.95em"><use href="#icon-arrow-right"/></svg></button>
+            <div id="contact-status" class="form-status" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</main>
 
 <footer>
-  <div>
-    <div class="footer-brand">
-      <img src="data:image/png;base64,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" alt="Pronexo Studio">
-      <span>PRONEXO STUDIO</span>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-row">
+          <img src="logo.png" alt="Pronexo Studio" width="32" height="32">
+          <span>Pronexo Studio</span>
+        </div>
+        <p class="footer-desc">Páginas web profesionales y chatbots con inteligencia artificial para autónomos y pequeños negocios locales en España. Con base en Almería y Granada, trabajamos con clientes de todo el país.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navegación</div>
+        <ul class="footer-links">
+          <li><a href="#sectores">Sectores</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#final-cta">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contacto</div>
+        <ul class="footer-links">
+          <li><a href="mailto:pronexostudio@hotmail.com">pronexostudio@hotmail.com</a></li>
+          <li><a href="https://www.instagram.com/pronexostudio/" target="_blank" rel="noopener">@pronexostudio</a></li>
+          <li>Almería &amp; Granada, España</li>
+        </ul>
+      </div>
     </div>
-    <div class="footer-copy">© 2025 Pronexo Studio · Almería &amp; Granada · pronexostudio@hotmail.com<br>Webs y chatbots con IA para negocios locales.</div>
-  </div>
-  <div class="footer-links">
-    <a href="#services">Servicios</a>
-    <a href="#pricing">Precios</a>
-    <a href="#process">Cómo funciona</a>
-    <a href="#testimonials">Clientes</a>
-    <a href="#cta">Contacto</a>
-    <a href="https://www.instagram.com/pronexostudio/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:.4rem"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram</a>
+    <div class="footer-bottom">
+      <span>© 2026 Pronexo Studio. Todos los derechos reservados.</span>
+      <div class="footer-legal">
+        <a href="#aviso-legal">Aviso legal</a>
+        <a href="#privacidad">Política de privacidad</a>
+        <a href="#cookies">Política de cookies</a>
+      </div>
+    </div>
+
+    <div class="legal-notes">
+      <div class="legal-block" id="aviso-legal">
+        <h3>Aviso legal</h3>
+        <p>[Pendiente de completar con datos fiscales reales antes de publicar] Titular: [nombre legal o razón social] · NIF/CIF: [pendiente] · Domicilio: [pendiente]. Este sitio web es operado por Pronexo Studio, dedicado al diseño de páginas web y chatbots con inteligencia artificial para negocios locales en España. Contacto: pronexostudio@hotmail.com.</p>
+      </div>
+      <div class="legal-block" id="privacidad">
+        <h3>Política de privacidad</h3>
+        <p>Los datos personales facilitados a través de los formularios de este sitio (nombre, email y necesidad indicada) se utilizan exclusivamente para responder a tu consulta y no se ceden a terceros salvo obligación legal. Puedes solicitar en cualquier momento el acceso, la rectificación o la eliminación de tus datos escribiendo a pronexostudio@hotmail.com.</p>
+      </div>
+      <div class="legal-block" id="cookies">
+        <h3>Política de cookies</h3>
+        <p>Este sitio no utiliza cookies de seguimiento por defecto. Si en el futuro se activan herramientas de analítica o publicidad (ver sección de configuración en main.js), se solicitará tu consentimiento antes de cargar cualquier cookie no esencial.</p>
+      </div>
+    </div>
   </div>
 </footer>
 
-<script>
-// PARTICLES
-const canvas=document.getElementById('particles-canvas');
-const ctx=canvas.getContext('2d');
-function resize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
-resize();window.addEventListener('resize',resize);
-class Particle{
-  constructor(){this.reset()}
-  reset(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*2+.5;this.speedX=(Math.random()-.5)*.3;this.speedY=(Math.random()-.5)*.3;this.opacity=Math.random()*.5+.1;this.color=Math.random()>.5?'155,89,245':'124,58,237';}
-  update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x<0||this.x>canvas.width||this.y<0||this.y>canvas.height)this.reset();}
-  draw(){ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fillStyle=`rgba(${this.color},${this.opacity})`;ctx.fill();}
-}
-const particles=[];
-for(let i=0;i<80;i++)particles.push(new Particle());
-function animateParticles(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  particles.forEach(p=>{p.update();p.draw()});
-  particles.forEach((p,i)=>{particles.slice(i+1).forEach(q=>{const d=Math.hypot(p.x-q.x,p.y-q.y);if(d<120){ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);ctx.strokeStyle=`rgba(124,58,237,${.08*(1-d/120)})`;ctx.lineWidth=.5;ctx.stroke();}});});
-  requestAnimationFrame(animateParticles);
-}
-animateParticles();
+<div class="overlay" id="exit-overlay" role="dialog" aria-modal="true" aria-labelledby="exit-title">
+  <div class="exit-modal">
+    <button type="button" class="exit-close" data-exit-close aria-label="Cerrar">
+      <svg class="icon"><use href="#icon-x"/></svg>
+    </button>
+    <div class="eyebrow">Antes de irte</div>
+    <h2 id="exit-title" style="font-family:'Fraunces',serif;font-size:1.5rem;margin:.8rem 0 .6rem">¿Sabes si tu negocio pierde clientes online?</h2>
+    <p style="color:var(--muted);font-size:.92rem;line-height:1.7;margin-bottom:1.4rem">Consigue tu diagnóstico gratuito de presencia digital en menos de un minuto, sin compromiso.</p>
+    <a href="#diagnostico" class="btn btn-primary btn-block" data-exit-close>Ver mi diagnóstico gratuito</a>
+  </div>
+</div>
 
-// CURSOR
-const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
-(function animateCursor(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateCursor);})();
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.8)';ring.style.borderColor='rgba(155,89,245,.8)';});
-  el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.borderColor='rgba(180,120,255,.6)';});
-});
-
-// HERO ANIMATION
-window.addEventListener('load',()=>{
-  setTimeout(()=>document.querySelector('.hero-title').classList.add('visible'),100);
-  setTimeout(()=>document.querySelector('.hero-sub').classList.add('visible'),400);
-  setTimeout(()=>document.querySelector('.hero-ctas').classList.add('visible'),600);
-  setTimeout(()=>{document.querySelector('.hero-stats').classList.add('visible');animateCounters();},900);
-});
-
-// COUNTERS
-function animateCounters(){
-  document.querySelectorAll('[data-count]').forEach(el=>{
-    const target=parseInt(el.dataset.count);
-    const suffix=el.dataset.suffix||'';
-    let cur=0;const step=Math.max(target/60,0.1);
-    const t=setInterval(()=>{
-      cur+=step;
-      if(cur>=target){cur=target;clearInterval(t);}
-      if(target===0){el.textContent='0'+suffix;}
-      else{el.textContent=Math.floor(cur)+suffix;}
-    },16);
-  });
-}
-
-// SCROLL REVEAL
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');obs.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-// MOUSE PARALLAX HERO
-document.getElementById('hero').addEventListener('mousemove',e=>{
-  const {left,top,width,height}=e.currentTarget.getBoundingClientRect();
-  const x=(e.clientX-left-width/2)/width,y=(e.clientY-top-height/2)/height;
-  document.getElementById('hero-content').style.transform=`translate(${x*12}px,${y*8}px)`;
-  document.querySelector('.orb1').style.transform=`translate(${x*-20}px,${y*-15}px)`;
-  document.querySelector('.orb2').style.transform=`translate(${x*15}px,${y*10}px)`;
-});
-document.getElementById('hero').addEventListener('mouseleave',()=>{
-  document.getElementById('hero-content').style.transform='';
-  document.querySelector('.orb1').style.transform='';
-  document.querySelector('.orb2').style.transform='';
-});
-
-// HOLO CARD
-document.querySelectorAll('.service-card-big,.pricing-card,.testimonial-card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const {left,top,width,height}=card.getBoundingClientRect();
-    const x=(e.clientX-left)/width-.5,y=(e.clientY-top)/height-.5;
-    card.style.transform=`perspective(800px) rotateY(${x*5}deg) rotateX(${y*-5}deg) translateZ(4px)`;
-  });
-  card.addEventListener('mouseleave',()=>{card.style.transform='';});
-});
-
-// NAVBAR SCROLL
-window.addEventListener('scroll',()=>{
-  const nav=document.getElementById('navbar');
-  nav.style.background=window.scrollY>60?'rgba(26,13,46,.95)':' rgba(26,13,46,.7)';
-});
-
-// CONTACT FORM OPTIONS
-let selectedOpts = new Set();
-function toggleOpt(id) {
-  const el = document.getElementById(id);
-  if (selectedOpts.has(id)) {
-    selectedOpts.delete(id);
-    el.style.background = 'rgba(26,13,46,.6)';
-    el.style.borderColor = 'rgba(124,58,237,.2)';
-    el.querySelector('span').style.color = 'var(--gray)';
-  } else {
-    selectedOpts.add(id);
-    el.style.background = 'rgba(124,58,237,.12)';
-    el.style.borderColor = 'rgba(124,58,237,.5)';
-    el.querySelector('span').style.color = 'var(--purple-light)';
-  }
-}
-
-// ─── FORM SECURITY & SUBMISSION ───────────────────────────────────────────
-// Web3Forms: el formulario envía los datos directamente a pronexostudio@hotmail.com
-// sin exponer credenciales. Solo necesitas activar tu access key gratuita en:
-// https://web3forms.com → introduce pronexostudio@hotmail.com → copia la key
-// y sustitúyela en WEB3FORMS_KEY.
-const WEB3FORMS_KEY = '938258ee-770e-47c2-9738-cf27a72c1791'; // ← pega aquí tu clave de web3forms.com
-
-function sanitize(str) {
-  return String(str).replace(/[<>&"'`]/g, c =>
-    ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#x27;','`':'&#x60;'}[c])
-  ).trim().slice(0, 500);
-}
-function isValidEmail(e) {
-  return /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/.test(e.trim());
-}
-function isValidName(n) {
-  return n.length >= 2 && n.length <= 100 && !/[<>&{}]/.test(n);
-}
-
-let lastSubmit = 0;
-let isSubmitting = false;
-
-async function sendContact() {
-  if (isSubmitting) return;
-
-  const now = Date.now();
-  if (now - lastSubmit < 15000) {
-    showError('Espera unos segundos antes de volver a enviar.');
-    return;
-  }
-
-  const rawName  = document.getElementById('cf-name').value.trim();
-  const rawEmail = document.getElementById('cf-email').value.trim();
-  const rawMsg   = document.getElementById('cf-msg').value.trim();
-
-  // Validation
-  if (!rawName || !rawEmail) { showError('Por favor, rellena nombre y email.'); return; }
-  if (!isValidName(rawName))  { showError('El nombre contiene caracteres no permitidos.'); return; }
-  if (!isValidEmail(rawEmail)){ showError('Introduce un email válido (ej: nombre@dominio.com).'); return; }
-
-  const name  = sanitize(rawName);
-  const email = sanitize(rawEmail);
-  const msg   = sanitize(rawMsg);
-  const opts  = [...selectedOpts]
-    .map(id => ({'opt-web':'Página web','opt-bot':'Chatbot con IA','opt-combo':'Combo web + chatbot','opt-other':'Tengo dudas'}[id]||''))
-    .filter(Boolean).join(', ');
-
-  // Honeypot check (bot trap field, hidden)
-  if (document.getElementById('cf-trap') && document.getElementById('cf-trap').value !== '') return;
-
-  const btn = document.querySelector('button[onclick="sendContact()"]');
-  btn.textContent = 'Enviando…';
-  btn.disabled = true;
-  isSubmitting = true;
-
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_KEY,
-        subject: 'Nueva consulta desde pronexostudio.com',
-        from_name: name,
-        email: email,
-        message: (opts ? 'Interesado en: ' + opts + '\n\n' : '') + (msg || 'Sin mensaje adicional'),
-        botcheck: ''
-      })
-    });
-    const data = await res.json();
-    if (data.success) {
-      document.getElementById('cf-success').style.display = 'block';
-      document.getElementById('cf-error').style.display = 'none';
-      document.getElementById('cf-name').value = '';
-      document.getElementById('cf-email').value = '';
-      document.getElementById('cf-msg').value = '';
-      selectedOpts.clear();
-      ['opt-web','opt-bot','opt-combo','opt-other'].forEach(id => {
-        const el = document.getElementById(id);
-        if(el){ el.style.background='rgba(26,13,46,.6)'; el.style.borderColor='rgba(124,58,237,.2)'; el.querySelector('span').style.color='var(--gray)'; }
-      });
-      lastSubmit = Date.now();
-    } else {
-      showError('Error al enviar. Escríbenos directamente a pronexostudio@hotmail.com');
-    }
-  } catch(e) {
-    showError('Sin conexión. Escríbenos a pronexostudio@hotmail.com');
-  } finally {
-    btn.textContent = 'Enviar consulta gratuita →';
-    btn.disabled = false;
-    isSubmitting = false;
-  }
-}
-
-function showError(msg) {
-  const el = document.getElementById('cf-error');
-  el.textContent = '⚠ ' + msg;
-  el.style.display = 'block';
-}
-
-// PROGRESS BAR
-const bar=document.createElement('div');
-bar.style.cssText='position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,#7C3AED,#9B59F5);z-index:1000;transition:width .1s;width:0';
-document.body.appendChild(bar);
-window.addEventListener('scroll',()=>{bar.style.width=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';});
-</script>
+<script src="main.js" defer></script>
 </body>
 </html>
