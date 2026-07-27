@@ -38,6 +38,7 @@ const CONFIG = {
 document.addEventListener('DOMContentLoaded', () => {
   initProgressBar();
   initHeader();
+  initMobileNav();
   initReveal();
   initFaq();
   initContactForm();
@@ -71,6 +72,29 @@ function initHeader() {
 }
 
 /* ============================================================
+   MOBILE NAV — menú hamburguesa
+   ============================================================ */
+function initMobileNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('mobile-nav');
+  const icon = document.getElementById('nav-toggle-icon');
+  if (!toggle || !panel) return;
+
+  function setOpen(open) {
+    panel.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    if (icon) icon.setAttribute('href', open ? '#icon-x' : '#icon-menu');
+    document.body.classList.toggle('no-scroll', open);
+  }
+
+  toggle.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  window.addEventListener('resize', () => { if (window.innerWidth > 760) setOpen(false); });
+}
+
+/* ============================================================
    SMOOTH ANCHOR SCROLL (respects header offset)
    ============================================================ */
 function initSmoothAnchors() {
@@ -82,6 +106,10 @@ function initSmoothAnchors() {
       e.preventDefault();
       const y = target.getBoundingClientRect().top + window.scrollY - 84;
       window.scrollTo({ top: y, behavior: 'smooth' });
+      if (id === 'chatbot-demo') {
+        const input = document.getElementById('chat-input');
+        if (input) setTimeout(() => input.focus({ preventScroll: true }), 550);
+      }
     });
   });
 }

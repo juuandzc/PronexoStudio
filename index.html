@@ -89,6 +89,7 @@
 <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 12 9 17 20 6"/></symbol>
 <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></symbol>
 <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="20"/><line x1="4" y1="12" x2="20" y2="12"/></symbol>
+<symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
 <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="12" x2="20" y2="12"/><polyline points="13 5 20 12 13 19"/></symbol>
 <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></symbol>
 <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="0.7" fill="currentColor" stroke="none"/></symbol>
@@ -122,12 +123,27 @@
       <li><a href="#sectores">Sectores</a></li>
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#precios">Precios</a></li>
+      <li><a href="#chatbot-demo" class="nav-link-demo"><svg class="icon" style="width:1em;height:1em"><use href="#icon-message"/></svg>Pruébalo tú mismo</a></li>
       <li><a href="#casos-exito">Casos de éxito</a></li>
       <li><a href="#faq">Preguntas</a></li>
     </ul>
     <div class="nav-actions">
       <a href="#final-cta" class="btn btn-primary btn-sm">Contactar</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menú">
+        <svg class="icon" id="nav-toggle-icon"><use href="#icon-menu"/></svg>
+      </button>
     </div>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-links">
+      <li><a href="#sectores">Sectores</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#precios">Precios</a></li>
+      <li><a href="#chatbot-demo" class="nav-link-demo"><svg class="icon" style="width:1em;height:1em"><use href="#icon-message"/></svg>Pruébalo tú mismo</a></li>
+      <li><a href="#casos-exito">Casos de éxito</a></li>
+      <li><a href="#faq">Preguntas</a></li>
+    </ul>
+    <a href="#final-cta" class="btn btn-primary btn-block">Contactar</a>
   </div>
 </header>
 
@@ -196,22 +212,18 @@
   </div>
 </section>
 
-<section id="sectores" class="section-alt" aria-labelledby="sectores-title">
-  <div class="container">
-    <div class="section-head centered reveal">
-      <div class="eyebrow centered">Sectores</div>
-      <h2 class="section-title" id="sectores-title">Trabajamos con negocios como el tuyo</h2>
-      <p class="section-lede">Conocemos las particularidades de cada sector porque ya hemos trabajado con negocios como el tuyo en toda España.</p>
-    </div>
-    <div class="sector-grid">
-      <div class="sector-card reveal"><div class="sector-icon"><svg class="icon"><use href="#icon-bolt"/></svg></div><div class="sector-name">Electricistas</div><div class="sector-desc">Presupuestos claros y contacto directo desde tu web.</div></div>
-      <div class="sector-card reveal reveal-d1"><div class="sector-icon"><svg class="icon"><use href="#icon-droplet"/></svg></div><div class="sector-name">Fontaneros</div><div class="sector-desc">Atención a urgencias sin perder ni una llamada.</div></div>
-      <div class="sector-card reveal reveal-d2"><div class="sector-icon"><svg class="icon"><use href="#icon-sparkle"/></svg></div><div class="sector-name">Centros de estética</div><div class="sector-desc">Reservas y consultas gestionadas sin esfuerzo.</div></div>
-      <div class="sector-card reveal reveal-d3"><div class="sector-icon"><svg class="icon"><use href="#icon-camera"/></svg></div><div class="sector-name">Fotógrafos</div><div class="sector-desc">Un portfolio que refleja tu nivel profesional.</div></div>
-      <div class="sector-card reveal"><div class="sector-icon"><svg class="icon"><use href="#icon-scissors"/></svg></div><div class="sector-name">Peluquerías</div><div class="sector-desc">Citas y dudas resueltas las 24 horas.</div></div>
-      <div class="sector-card reveal reveal-d1"><div class="sector-icon"><svg class="icon"><use href="#icon-utensils"/></svg></div><div class="sector-name">Hostelería</div><div class="sector-desc">Carta, horarios y reservas siempre accesibles.</div></div>
-      <div class="sector-card reveal reveal-d2"><div class="sector-icon"><svg class="icon"><use href="#icon-dumbbell"/></svg></div><div class="sector-name">Entrenadores personales</div><div class="sector-desc">Capta clientes nuevos mientras entrenas a los actuales.</div></div>
-      <div class="sector-card reveal reveal-d3"><div class="sector-icon"><svg class="icon"><use href="#icon-users"/></svg></div><div class="sector-name">Autónomos y otros negocios</div><div class="sector-desc">Si atiendes clientes locales, esto está pensado para ti.</div></div>
+<section id="sectores" class="section-alt sectors-band" aria-labelledby="sectores-title">
+  <div class="container sectors-compact reveal">
+    <h2 class="sectors-compact-title" id="sectores-title">Trabajamos con negocios como el tuyo, en toda España</h2>
+    <div class="sector-pills">
+      <span class="sector-pill"><svg class="icon"><use href="#icon-bolt"/></svg>Electricistas</span>
+      <span class="sector-pill"><svg class="icon"><use href="#icon-droplet"/></svg>Fontaneros</span>
+      <span class="sector-pill"><svg class="icon"><use href="#icon-sparkle"/></svg>Estética</span>
+      <span class="sector-pill"><svg class="icon"><use href="#icon-camera"/></svg>Fotografía</span>
+      <span class="sector-pill"><svg class="icon"><use href="#icon-scissors"/></svg>Peluquería</span>
+      <span class="sector-pill"><svg class="icon"><use href="#icon-utensils"/></svg>Hostelería</span>
+      <span class="sector-pill"><svg class="icon"><use href="#icon-dumbbell"/></svg>Entrenadores</span>
+      <span class="sector-pill"><svg class="icon"><use href="#icon-users"/></svg>Y más autónomos</span>
     </div>
   </div>
 </section>
@@ -319,63 +331,62 @@
     </div>
     <div class="portfolio-grid">
       <div class="portfolio-card reveal">
-        <div class="pf-mock" role="img" aria-label="Vista previa ilustrativa de una web para fotógrafos, con portfolio en cuadrícula">
-          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span></div>
-          <div class="pf-mock-body">
-            <div class="pf-bar" style="width:40%;height:14px"></div>
-            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.4rem;margin-top:.4rem">
-              <div class="pf-bar" style="height:38px"></div><div class="pf-bar" style="height:38px"></div><div class="pf-bar" style="height:38px"></div>
-              <div class="pf-bar" style="height:38px"></div><div class="pf-bar" style="height:38px"></div><div class="pf-bar" style="height:38px"></div>
+        <div class="pf-mock" style="--pf-bg:#161213;--pf-fg:#f2ece2;--pf-accent:#c9a66b" role="img" aria-label="Vista previa ilustrativa de una web para una fotógrafa, Marina Cortés Fotografía">
+          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-browser-url">marinacortes.es</span></div>
+          <div class="pf-site">
+            <div class="pf-site-nav"><span class="pf-site-brand">Marina Cortés</span><span class="pf-site-links"><span>Portfolio</span><span>Sobre mí</span><span>Contacto</span></span></div>
+            <div class="pf-site-hero">
+              <h4>Fotografía de bodas y retrato en Andalucía</h4>
+              <p>Sesiones naturales, con luz y calma.</p>
+              <span class="pf-site-cta">Ver disponibilidad</span>
             </div>
           </div>
           <span class="pf-tag">Ejemplo de diseño</span>
         </div>
         <div class="pf-info">
           <div class="pf-sector">Fotografía</div>
-          <div class="pf-title">Portfolio visual y minimalista</div>
-          <p class="pf-desc">Galería en cuadrícula, biografía y formulario de contacto directo para presupuestos de sesiones.</p>
+          <div class="pf-title">Marina Cortés Fotografía</div>
+          <p class="pf-desc">Ejemplo de landing para una fotógrafa de bodas y retrato: portfolio visual, biografía breve y contacto directo para presupuestos.</p>
         </div>
       </div>
 
       <div class="portfolio-card reveal reveal-d1">
-        <div class="pf-mock" role="img" aria-label="Vista previa ilustrativa de una web para un servicio técnico, con llamada a la acción destacada">
-          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span></div>
-          <div class="pf-mock-body">
-            <div class="pf-bar" style="width:55%;height:16px"></div>
-            <div class="pf-bar" style="width:85%"></div>
-            <div class="pf-bar" style="width:70%"></div>
-            <div class="pf-bar" style="width:35%;height:32px;background:var(--brand);opacity:.5;margin-top:.4rem"></div>
+        <div class="pf-mock" style="--pf-bg:#11161f;--pf-fg:#eef2fa;--pf-accent:#f5a623" role="img" aria-label="Vista previa ilustrativa de una web para un electricista, Electricidad Bravo">
+          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-browser-url">electricidadbravo.es</span></div>
+          <div class="pf-site">
+            <div class="pf-site-nav"><span class="pf-site-brand">Electricidad Bravo</span><span class="pf-site-links"><span>Servicios</span><span>Cobertura</span><span>Contacto</span></span></div>
+            <div class="pf-site-hero">
+              <h4>Instalaciones eléctricas y urgencias 24h</h4>
+              <p>Sevilla y alrededores · presupuesto el mismo día.</p>
+              <span class="pf-site-cta">Pedir presupuesto</span>
+            </div>
           </div>
           <span class="pf-tag">Ejemplo de diseño</span>
         </div>
         <div class="pf-info">
           <div class="pf-sector">Servicios técnicos</div>
-          <div class="pf-title">Presupuesto y contacto en un clic</div>
-          <p class="pf-desc">Pensada para electricistas y fontaneros: servicios claros, zona de cobertura y CTA de contacto siempre visible.</p>
+          <div class="pf-title">Electricidad Bravo</div>
+          <p class="pf-desc">Ejemplo de landing para un electricista autónomo: servicios claros, zona de cobertura y presupuesto a un clic.</p>
         </div>
       </div>
 
       <div class="portfolio-card reveal reveal-d2">
-        <div class="pf-mock" role="img" aria-label="Vista previa ilustrativa de una web para un centro de estética o peluquería, con menú de servicios">
-          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span></div>
-          <div class="pf-mock-body">
-            <div class="pf-bar" style="width:48%;height:16px"></div>
-            <div style="display:flex;gap:.4rem;margin-top:.3rem">
-              <div class="pf-bar" style="width:100%;height:28px"></div>
-            </div>
-            <div style="display:flex;gap:.4rem">
-              <div class="pf-bar" style="width:100%;height:28px"></div>
-            </div>
-            <div style="display:flex;gap:.4rem">
-              <div class="pf-bar" style="width:100%;height:28px"></div>
+        <div class="pf-mock" style="--pf-bg:#211318;--pf-fg:#f7ecef;--pf-accent:#e39aac" role="img" aria-label="Vista previa ilustrativa de una web para un centro de estética, Espacio Lúa">
+          <div class="pf-browser-bar"><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-dot"></span><span class="pf-browser-url">espaciolua.es</span></div>
+          <div class="pf-site">
+            <div class="pf-site-nav"><span class="pf-site-brand">Espacio Lúa</span><span class="pf-site-links"><span>Tratamientos</span><span>Reservas</span><span>Contacto</span></span></div>
+            <div class="pf-site-hero">
+              <h4>Cuidado facial y corporal en el centro de Málaga</h4>
+              <p>Reserva tu cita en menos de un minuto.</p>
+              <span class="pf-site-cta">Reservar cita</span>
             </div>
           </div>
           <span class="pf-tag">Ejemplo de diseño</span>
         </div>
         <div class="pf-info">
           <div class="pf-sector">Estética &amp; peluquería</div>
-          <div class="pf-title">Reservas y menú de servicios</div>
-          <p class="pf-desc">Menú de tratamientos con precios orientativos y acceso rápido a reserva o consulta por chatbot.</p>
+          <div class="pf-title">Espacio Lúa Estética</div>
+          <p class="pf-desc">Ejemplo de landing para un centro de estética: menú de tratamientos, reserva rápida y tono cercano.</p>
         </div>
       </div>
     </div>
@@ -689,8 +700,7 @@
       <p class="section-lede">Cuéntanos en qué punto está tu negocio y te decimos, sin compromiso, qué solución tiene más sentido para ti.</p>
     </div>
 
-    <div class="container" style="padding:0">
-      <div class="reveal reveal-d1" style="display:grid;grid-template-columns:.85fr 1.15fr;gap:3.5rem;align-items:start" id="final-cta-grid">
+    <div class="final-cta-grid reveal reveal-d1">
         <div class="contact-cards">
           <a href="mailto:pronexostudio@hotmail.com" class="contact-card">
             <div class="contact-card-icon"><svg class="icon"><use href="#icon-mail"/></svg></div>
@@ -738,7 +748,6 @@
             <div id="contact-status" class="form-status" role="status"></div>
           </form>
         </div>
-      </div>
     </div>
   </div>
 </section>
