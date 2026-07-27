@@ -7,7 +7,7 @@ const CONFIG = {
   // 1) Crea un formulario gratis en https://formspree.io, copia su ID
   //    y sustitúyelo aquí. Se usa tanto para el formulario de contacto
   //    como para el diagnóstico gratuito y el lead del chatbot demo.
-  FORMSPREE_ENDPOINT: 'https://formspree.io/f/TU_FORM_ID',
+  FORMSPREE_ENDPOINT: 'https://formspree.io/f/maqrazlp',
 
   // 2) Analytics — deja vacío para no cargar nada. Rellena para activar.
   GA_MEASUREMENT_ID: '',   // ej: 'G-XXXXXXXXXX'
