@@ -238,32 +238,6 @@ header.scrolled{background:rgba(18,10,31,.92);backdrop-filter:blur(16px);border-
 }
 .sector-pill .icon{width:1em;height:1em;color:var(--accent)}
 
-/* ============ SERVICES ============ */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.service-card{
-  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);
-  padding:2.6rem 2.2rem;display:flex;flex-direction:column;
-  transition:border-color .25s,transform .25s var(--ease);
-}
-.service-card:hover{transform:translateY(-4px);border-color:var(--line-strong)}
-.service-card.featured{border-color:var(--brand);background:linear-gradient(180deg,rgba(124,58,237,.09),var(--surface) 40%);position:relative}
-.service-badge{
-  position:absolute;top:-1px;left:2.2rem;transform:translateY(-50%);
-  background:var(--brand);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
-  padding:.35rem .85rem;border-radius:50px;
-}
-.service-icon{
-  width:48px;height:48px;border-radius:12px;background:rgba(124,58,237,.14);
-  display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1.5rem;
-}
-.service-name{font-family:'Fraunces',serif;font-size:1.3rem;margin-bottom:.6rem}
-.service-desc{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:1.6rem}
-.service-features{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:2rem;flex-grow:1}
-.service-features li{display:flex;gap:.6rem;align-items:flex-start;font-size:.87rem;color:var(--text)}
-.service-features .icon{width:1.05em;height:1.05em;color:var(--gold);margin-top:.2em}
-.service-price-row{display:flex;align-items:baseline;gap:.5rem;padding-top:1.4rem;border-top:1px solid var(--line);margin-bottom:1.4rem}
-.service-price{font-family:'Fraunces',serif;font-size:2.1rem;color:var(--text)}
-.service-price-note{font-size:.78rem;color:var(--muted)}
 
 /* ============ RESULTS ============ */
 .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
@@ -326,6 +300,10 @@ header.scrolled{background:rgba(18,10,31,.92);backdrop-filter:blur(16px);border-
   position:absolute;top:-1px;left:50%;transform:translate(-50%,-50%);
   background:var(--brand);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
   padding:.35rem 1rem;border-radius:50px;white-space:nowrap;
+}
+.price-icon{
+  width:44px;height:44px;border-radius:11px;background:rgba(124,58,237,.14);
+  display:flex;align-items:center;justify-content:center;color:var(--accent);margin-bottom:1.2rem;
 }
 .price-plan{font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:.7rem}
 .price-what{font-family:'Fraunces',serif;font-size:1.25rem;margin-bottom:1rem}
@@ -525,7 +503,7 @@ footer{border-top:1px solid var(--line);padding:3.5rem 0 2rem}
 /* ============ RESPONSIVE ============ */
 @media(max-width:1080px){
   .trust-grid{grid-template-columns:repeat(2,1fr)}
-  .services-grid,.pricing-grid,.portfolio-grid,.case-grid{grid-template-columns:1fr 1fr}
+  .pricing-grid,.portfolio-grid,.case-grid{grid-template-columns:1fr 1fr}
   .results-grid{grid-template-columns:repeat(2,1fr)}
   .process-grid{grid-template-columns:1fr 1fr;row-gap:2.5rem}
   .process-grid::before{display:none}
@@ -542,7 +520,7 @@ footer{border-top:1px solid var(--line);padding:3.5rem 0 2rem}
   .nav-links{display:none}
   .nav-toggle{display:flex}
   .nav-inner{padding:1rem 1.4rem}
-  .services-grid,.pricing-grid,.portfolio-grid,.results-grid,.case-grid{grid-template-columns:1fr}
+  .pricing-grid,.portfolio-grid,.results-grid,.case-grid{grid-template-columns:1fr}
   .sector-pills{gap:.5rem}
   .sector-pill{font-size:.8rem;padding:.5rem .9rem}
   .process-grid{grid-template-columns:1fr}
